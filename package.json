@@ -1,0 +1,24 @@
+{
+	"name": "weevolve",
+	"version": "1.0.0",
+	"description": "we evolve website",
+	"main": "index.js",
+	"scripts": {
+		"start": "node ./build/index.js",
+		"clean": "node ./build/clean.js",
+		"server": "pushd dist; python -m SimpleHTTPServer; popd",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Stoo Goff",
+	"license": "ISC",
+	"devDependencies": {
+		"metalsmith": "^2.3.0",
+		"metalsmith-permalinks": "^0.5.0",
+		"metalsmith-sass": "^1.5.1",
+		"metalsmith-drafts": "0.0.1",
+		"metalsmith-layouts": "^2.1.0",
+		"metalsmith-markdown": "^0.2.2",
+		"jstransformer-handlebars": "^1.1.0",
+		"rimraf": "^3.0.2"
+	}
+}

@@ -1,0 +1,17 @@
+
+{{> header.hbs }}
+
+{{#each games}}
+<section id="{{makeId title}}" class="hero is-medium is-dark has-text-centered" style="background-image: url(/media/img/{{ image.source }})">
+	<a href="/{{ path }}">
+		<div class="hero-body">
+			<div class="container is-invisible">
+				<h1 class="title is-1">{{ title }}</h1>
+				{{#if subtitle }}<h2 class="subtitle">{{ subtitle }}</h2>{{/if}}
+			</div>
+		</div>
+	</a>
+</section>
+{{/each}}
+
+{{> footer.hbs }}

@@ -1,0 +1,59 @@
+
+// ------------------------------------
+// Responsive screen variables
+// ------------------------------------
+$mobile: 768px
+$tablet: 769px
+$desktop: 1024px
+$widescreen: 1216px
+$fullhd: 1408px
+
+
+// ------------------------------------
+// Colour variables
+// ------------------------------------
+$colourLine: rgb(211,211,211)
+
+
+// ------------------------------------
+// Base styles
+// ------------------------------------
+ul.is-inline-list
+	list-style-type: none
+
+	li
+		display: inline-block
+		padding: 0.2rem 0.5rem
+		text-align: center
+		border-right: 1px solid $colourLine
+
+		&:last-child
+			border-right: 0
+
+
+// ------------------------------------
+// Bumal overrides
+// ------------------------------------
+.container
+	max-width: 43rem
+
+.footer .image
+	max-width: 300px
+	margin-bottom: 0.5rem !important
+	margin-left: auto
+	margin-right: auto
+
+
+// ------------------------------------
+// Navbar for small screens
+// ------------------------------------
+@media screen and (max-width: $desktop)
+	div.navbar-end
+		border-top: 1px solid $colourLine
+
+
+.hero
+	background-position: center center
+	//background-size: auto 100%
+	background-size: cover
+	background-repeat: no-repeat
