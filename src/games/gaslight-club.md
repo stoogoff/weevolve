@@ -2,9 +2,12 @@
 title: The Gaslight Club
 subtitle: TGC
 collection: games
-layout: content.hbs
-image:
-  source: bg-tgc.jpg
+tag: tgc
+layout: banner.hbs
+available: true
+sort: 3
+banner:
+  source: tgc/banner.jpg
   text: The Gaslight Club
   width: 1500
   height: 500

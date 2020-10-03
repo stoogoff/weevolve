@@ -2,8 +2,11 @@
 title: WILD
 subtitle: Wake Initiated Lucid Dreaming
 collection: games
-layout: content.hbs
-image:
+tag: wild
+layout: banner.hbs
+available: false
+sort: 2
+banner:
   source: bg-wild.jpg
   text: WILD
   width: 4096

@@ -25,7 +25,15 @@ files.forEach(f => partials[f] = fs.readFileSync(path.join(incPath, f), "utf8"))
 
 // create some handlebars helpers
 let helpers = {
-	"makeId": input => (input || "").trim().toLowerCase().replace(/<small>[^<]+<\/small>/, "").replace("&#x27;", "'").replace(/[\s\W]+/g, "-").replace(/-$/, "")
+	"makeId": input => (input || "").trim().toLowerCase().replace(/<small>[^<]+<\/small>/, "").replace("&#x27;", "'").replace(/[\s\W]+/g, "-").replace(/-$/, ""),
+	"contains": (container, item, options) => {
+		if((Array.isArray(container) && container.indexOf && container.indexOf(item) != -1) || (item in container)) {
+			return options.fn(this);
+		}
+		else {
+			return options.inverse(this);
+		}
+	}
 };
 
 
@@ -47,21 +55,13 @@ Metalsmith(__dirname)
 		}
 	}))
 	.use(drafts())
-	/*.use(each((file, path) => {
-		if(file.collection && !("sort" in file)) {
-			if(file.published) {
-				file.sort = file.published;
-			}
-			else if(file.shortTitle) {
-				file.sort = file.shortTitle;
-			}
-			else if(file.title) {
-				file.sort = file.title;
-			}
+	.use(each((file, key) => {
+		if(collections.is(file, "product")) {
+			file.layout = "product.hbs";
 		}
-	}, ".md"))*/
+	}))
 	.use(collections({
-		"games": "title"
+		[collections.DEFAULT]: "sort"
 	}))
 	.use(sass({
 		outputDir: "media/css/"

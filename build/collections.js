@@ -47,3 +47,20 @@ module.exports = function collections(settings) {
 };
 
 module.exports.DEFAULT = DEFAULT;
+module.exports.is = (file, collection) => {
+	if(!("collection" in file)) {
+		return false;
+	}
+
+	let fileCol = file.collection;
+
+	if(!Array.isArray(fileCol)) {
+		fileCol = [fileCol];
+	}
+
+	if(!Array.isArray(collection)) {
+		collection = [collection];
+	}
+
+	return fileCol.filter(a => collection.indexOf(a) !== -1).length >= 1;
+};

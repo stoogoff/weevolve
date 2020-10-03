@@ -2,9 +2,12 @@
 title: Aegean
 subtitle: Epic Adventure
 collection: games
-layout: content.hbs
-image:
-  source: bg-aegean.jpg
+tag: aegean
+layout: banner.hbs
+available: true
+sort: 1
+banner:
+  source: aegean/banner.jpg
   text: Aegean
   width: 5396
   height: 1906
