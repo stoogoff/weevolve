@@ -7,6 +7,16 @@ price: 14.99
 url: https://www.aegeanrpg.com/products/qsr/
 description: 100 page soft cover book.
 cover: aegean/qsr-cover-800.jpg
+images:
+  -
+    source: aegean/layout-qsr-contents.jpg
+    text: Contents
+  -
+    source: aegean/layout-qsr-scars.jpg
+    text: Scars
+  -
+    source: aegean/layout-qsr-pan.jpg
+    text: Pan and other gods
 taxable: false
 weight: 212
 ---

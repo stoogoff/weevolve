@@ -7,6 +7,22 @@ price: 14.99
 url: https://www.aegeanrpg.com/products/adventures/
 description: 148 page soft cover book.
 cover: aegean/adventures-cover-800.jpg
+images:
+  -
+    source: aegean/layout-aa-bearing-gifts.jpg
+    text: Bearing Gifts
+  -
+    source: aegean/layout-aa-harp-of-discord.png
+    text: The Harp of Discord
+  -
+    source: aegean/layout-aa-leaden-tablet.jpg
+    text: The Leaden Tablet
+  -
+    source: aegean/layout-aa-poseidons-children.png
+    text: Poseidon's Children
+  -
+    source: aegean/layout-aa-the-golden-bull.png
+    text: The Curse of the Golden Bull
 taxable: false
 weight: 288
 ---
