@@ -1,7 +1,11 @@
 <template>
-  <Tutorial/>
+  <main>
+
+  </main>
 </template>
 
 <script>
-export default {}
+export default {
+	layout: 'home',
+}
 </script>
