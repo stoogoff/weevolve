@@ -1,5 +1,5 @@
 <template>
-	<nav-bar v-bind="$attrs">
+	<nav-bar :transparent="transparent">
 		<template #title>
 			<nuxt-link to="/">we evolve</nuxt-link>
 		</template>

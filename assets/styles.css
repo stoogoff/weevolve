@@ -71,16 +71,16 @@ ol.list, .content ol {
 	@apply hover:shadow-lg cursor-pointer;
 }
 .btn.primary {
-	@apply bg-blue-600 text-blue-400 hover:bg-blue-800;
+	@apply bg-blue-600 text-blue-100 hover:bg-blue-800;
 }
 .btn.secondary {
-	@apply bg-yellow-600 text-yellow-400 hover:bg-yellow-800;
+	@apply bg-yellow-600 text-yellow-100 hover:bg-yellow-800;
 }
 .btn.success {
-	@apply bg-green-600 text-green-400 hover:bg-green-800;
+	@apply bg-green-600 text-green-100 hover:bg-green-800;
 }
 .btn.warning {
-	@apply bg-red-600 text-red-400 hover:bg-red-800;
+	@apply bg-red-600 text-red-100 hover:bg-red-800;
 }
 .btn.outlined {
 	@apply bg-white border border-solid border-gray-700 hover:text-gray-900 hover:bg-gray-100;
@@ -92,19 +92,19 @@ ol.list, .content ol {
 }
 
 .btn.outlined.primary {
-	@apply text-blue-600 border-blue-600 hover:bg-blue-400 hover:text-blue-800 hover:border-blue-800;
+	@apply text-blue-600 border-blue-600 hover:bg-blue-200 hover:text-blue-800 hover:border-blue-800;
 }
 
 .btn.outlined.secondary {
-	@apply text-yellow-600 border-yellow-600 hover:bg-yellow-400 hover:text-yellow-800 hover:border-yellow-800;
+	@apply text-yellow-600 border-yellow-600 hover:bg-yellow-200 hover:text-yellow-800 hover:border-yellow-800;
 }
 
 .btn.outlined.success {
-	@apply text-green-600 border-green-600 hover:bg-green-400 hover:text-green-800 hover:border-green-800;
+	@apply text-green-600 border-green-600 hover:bg-green-200 hover:text-green-800 hover:border-green-800;
 }
 
 .btn.outlined.warning {
-	@apply text-red-600 border-red-600 hover:bg-red-400 hover:text-red-800 hover:border-red-800;
+	@apply text-red-600 border-red-600 hover:bg-red-200 hover:text-red-800 hover:border-red-800;
 }
 
 .btn-icon {

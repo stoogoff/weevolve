@@ -3,11 +3,11 @@
 		<section v-if="games.length">
 			<h1>Games</h1>
 			<div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
-				<div class="shadow-lg" v-for="(game, idx) in games" :key="idx">
-					<img class="w-full" src="https://i.imgur.com/lmYYa2s.png" />
+				<div class="shadow-lg cursor-pointer" v-for="(game, idx) in games" :key="idx" @click="navigateTo(game.path)">
+					<img class="w-full" :src="`/img/${game.image}`" />
 					<div class="px-4 py-2">
 						<h1 class="text-xl font-gray-700 font-bold">{{ game.title }}</h1>
-						<nuxt-content :document="game" />
+						<p class="h-40 text-sm tracking-normal" v-html="$options.filters.markdownNoPara(game.summary)" />
 						<link-action block type="primary" :to="game.path">Read more</link-action>
 					</div>
 				</div>
@@ -29,7 +29,7 @@ export default {
 	layout: 'default',
 
 	async fetch() {
-		this.games = (await this.$content('games').only(['title', 'sort', 'body']).fetch()).sort(sortByProperty('sort'))
+		this.games = (await this.$content('games').fetch()).sort(sortByProperty('sort'))
 	},
 
 	data() {
@@ -37,6 +37,12 @@ export default {
 			games: [],
 			supplements: [],
 		}
+	},
+
+	methods: {
+		navigateTo(path) {
+			this.$router.push(path)
+		},
 	},
 }
 </script>
