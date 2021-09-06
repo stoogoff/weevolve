@@ -4,7 +4,7 @@
 			<h1>Games</h1>
 			<div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
 				<div class="shadow-lg cursor-pointer" v-for="(game, idx) in games" :key="idx" @click="navigateTo(game.path)">
-					<img class="w-full" :src="`/img/${game.image}`" />
+					<img class="w-full" :src="`/img/${game.images[0]}`" />
 					<div class="px-4 py-2">
 						<h1 class="text-xl font-gray-700 font-bold">{{ game.title }}</h1>
 						<p class="h-40 text-sm tracking-normal" v-html="$options.filters.markdownNoPara(game.summary)" />

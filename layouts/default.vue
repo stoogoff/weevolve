@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<main-nav />
-		<main-content>
+		<main-content class="py-16">
 			<Nuxt />
 		</main-content>
 		<footer-section />

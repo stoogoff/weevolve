@@ -1,14 +1,20 @@
 <template>
-	<div>
-		<!-- TODO second column with products / primary product -->
-		<img :src="`/img/${game.banner}`" v-if="!$fetchState.pending" class="block object-cover w-full" />
+	<loading-spinner v-if="$fetchState.pending" />
+	<div v-else>
+		<img :src="`/img/${game.banner}`" class="block object-cover w-full" />
+		<div class="w-full bg-gray-700 border-b-2 border-yellow-500 flex justify-center p-2">
+			<link-action :to="link.url" v-for="(link, idx) in game.links" :key="`link_${idx}`">{{ link.title }}</link-action>
+		</div>
 		<main-content>
-			<loading-spinner v-if="$fetchState.pending" />
-			<div v-else>
-				<p class="text-lg" v-html="$options.filters.markdownNoPara(game.summary)" />
-				<div class="content mb-8">
-					<nuxt-content :document="game" />
-				</div>
+			<div class="flex flex-wrap">
+				<article class="w-full lg:w-9/12 mb-6 lg:mb-0">
+					<div class="content mb-8">
+						<nuxt-content :document="game" />
+					</div>
+				</article>
+				<aside class="grid grid-cols-3 lg:block lg:w-3/12 lg:pl-6">
+					<img class="shadow-lg lg:mb-3 lg:w-full" :src="`/img/${image}`" v-for="(image, idx) in game.images" :key="`game_${idx}`" />
+				</aside>
 			</div>
 		</main-content>
 	</div>
