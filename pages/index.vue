@@ -1,35 +1,53 @@
 <template>
-	<main>
-		<div>
-			<button-action type="primary">Primary</button-action>
-			<button-action type="secondary">Secondary</button-action>
-			<button-action type="success">Success</button-action>
-			<button-action type="warning">Warning</button-action>
+	<div>
+		<img src="/img/kickstarter-banner.png" class="block object-cover w-full" />
+		<div class="w-full bg-gray-700 border-b-2 border-yellow-500 flex justify-center p-2">
+			<link-action :to="link.url" v-for="(link, idx) in links" :key="`link_${idx}`">{{ link.title }}</link-action>
 		</div>
-		<div>
-			<button-action disabled type="primary">Primary</button-action>
-			<button-action disabled type="secondary">Secondary</button-action>
-			<button-action disabled type="success">Success</button-action>
-			<button-action disabled type="warning">Warning</button-action>
-		</div>
-		<div>
-			<button-action outlined type="primary">Primary</button-action>
-			<button-action outlined type="secondary">Secondary</button-action>
-			<button-action outlined type="success">Success</button-action>
-			<button-action outlined type="warning">Warning</button-action>
-		</div>
-		<div>
-			<button-action outlined disabled type="primary">Primary</button-action>
-			<button-action outlined disabled type="secondary">Secondary</button-action>
-			<button-action outlined disabled type="success">Success</button-action>
-			<button-action outlined disabled type="warning">Warning</button-action>
-		</div>
+		<main-content>
+			<div class="flex flex-wrap">
+				<article class="w-full lg:w-9/12 mb-6 lg:mb-0">
+					<div class="content mb-8">
+						<markdown-content content="home" />
+					</div>
+				</article>
+				<aside class="grid grid-cols-3 lg:block lg:w-3/12 lg:pl-6">
+					<image-caption
+						v-for="(image, idx) in images"
+						:key="`image_${idx}`"
+						:title="image.title"
+						:url="image.url"
+					/>
+				</aside>
+			</div>
+		</main-content>
+	</div>
 
-	</main>
 </template>
 
 <script>
 export default {
-	layout: 'default',
+	layout: 'home',
+
+	data() {
+		return {
+			links: [
+				{
+					title: 'Aegean Kickstarter',
+					url: 'https://www.kickstarter.com/projects/stoo-goff/aegean-mythic-role-playing-across-the-aegean-sea',
+				},
+				{
+					title: 'Aegean Website',
+					url: 'https://www.aegeanrpg.com/',
+				},
+			],
+			images: [
+				{
+					title: 'Currently in development',
+					url: 'footfall/footfall-logo.png',
+				},
+			],
+		}
+	}
 }
 </script>
