@@ -1,5 +1,8 @@
 <template>
-	<nuxt-link :class="classList" :disabled="disabled" :to="to">
+	<a :class="classList" :disabled="disabled" :href="to" v-if="isExternal">
+		<slot />
+	</a>
+	<nuxt-link :class="classList" :disabled="disabled" :to="to" v-else>
 		<slot />
 	</nuxt-link>
 </template>
@@ -31,6 +34,10 @@ export default Vue.component('LinkAction', {
 	},
 
 	computed: {
+		isExternal() {
+			return this.to.startsWith('http')
+		},
+
 		classList() {
 			let classList = ['btn', 'inline-block']
 

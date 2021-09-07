@@ -52,7 +52,15 @@
 								:key="`useful_${idx}`"
 								v-for="(item, idx) in useful"
 							>
+								<a
+									v-if="item.external"
+									class="text-gray-300 hover:text-gray-100 inline-block pb-2 text-sm"
+									:href="item.href"
+									>
+										{{ item.title }}
+								</a>							
 								<nuxt-link
+									v-else
 									class="text-gray-300 hover:text-gray-100 inline-block pb-2 text-sm"
 									:to="item.href"
 									>
@@ -99,8 +107,8 @@ export default Vue.component('FooterSection', {
 			],
 			useful: [
 				{ title: 'About Us', href: '/support/about-us' },
-				{ title: 'aegeanrpg.com', href: 'https://www.aegeanrpg.com/' },
-				{ title: 'wildrpg.com', href: 'https://www.wildrpg.com/' },
+				{ title: 'aegeanrpg.com', href: 'https://www.aegeanrpg.com/', external: true },
+				{ title: 'wildrpg.com', href: 'https://www.wildrpg.com/', external: true },
 
 			],
 			games: null,
