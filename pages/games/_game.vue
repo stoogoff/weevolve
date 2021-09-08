@@ -20,6 +20,8 @@
 	</div>
 </template>
 <script>
+import meta from '~/utils/meta'
+
 export default {
 	layout: 'home',
 
@@ -37,6 +39,38 @@ export default {
 	data() {
 		return {
 			game: null
+		}
+	},
+
+	computed: {
+		title() {
+			return this.game ? this.game.title : ''
+		},
+
+		baseUrl() {
+			return this.$nuxt.context.env.baseUrl
+		},
+
+		meta() {
+			if(!this.game) return {}
+
+			return meta({
+				type: 'article',
+				title: this.title,
+				description: this.game.summary,
+				url: `${this.baseUrl}/games/${this.$route.params.game}`,
+				mainImage: this.game.banner,
+			})
+		}
+	},
+
+	head() {
+		return {
+			title: this.title,
+			meta: this.meta.meta,
+			link: [
+				{ hid: 'canonical', rel: 'canonical', href: `${this.baseUrl}/games/${this.$route.params.game}` },
+			]
 		}
 	},
 }

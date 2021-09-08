@@ -1,21 +1,29 @@
+
+import meta from './utils/meta'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'we evolve',
+    titleTemplate: '%s | we evolve',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
+      ...meta(),
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { hid: 'canonical', rel: 'canonical', href: process.env.BASE_URL },
     ]
   },
 
