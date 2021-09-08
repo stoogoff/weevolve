@@ -39,6 +39,21 @@ export default {
 		}
 	},
 
+	computed: {
+		baseUrl() {
+			return this.$nuxt.context.env.baseUrl
+		},
+	},
+
+	head() {
+		return {
+			title: 'Games',
+			link: [
+				{ hid: 'canonical', rel: 'canonical', href: `${this.baseUrl}/games/` },
+			]
+		}
+	},
+
 	methods: {
 		navigateTo(path) {
 			this.$router.push(path)

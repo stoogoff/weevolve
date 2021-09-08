@@ -6,5 +6,11 @@
 <script>
 export default {
 	layout: 'default',
+
+	head() {
+		return {
+			title: 'About Us',
+		}
+	},
 }
 </script>

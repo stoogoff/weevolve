@@ -2,8 +2,8 @@
 const type = 'website'
 const url = 'https://we-evolve.co.uk'
 const title = 'we evolve'
-const description = 'Articles focused on the beautiful art of landscape painting.'
-const image = '/a-lovely-image.png'
+const description = 'Publisher of the Aegean and WILD role-playing games.'
+const image = '/img/kickstarter-banner.png'
 
 export default (meta) => {
 	const newTitle = (meta && meta.title) || title

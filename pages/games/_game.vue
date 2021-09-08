@@ -57,7 +57,7 @@ export default {
 			return meta({
 				type: 'article',
 				title: this.title,
-				description: this.game.summary,
+				description: this.game.summary.replace(/\*\*/g, ''),
 				url: `${this.baseUrl}/games/${this.$route.params.game}`,
 				mainImage: this.game.banner,
 			})
