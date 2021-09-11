@@ -20,7 +20,7 @@
 									:href="item.href"
 									target="_blank"
 								>
-									{{ item.title }}
+									<img :src="item.img" :alt="item.title" class="max-w-xs mt-2" />
 								</a>
 							</div>
 						</span>
@@ -71,12 +71,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="text-sm py-1 mt-6 ml-4">
-				<a
-					href="https://we-evolve.co.uk/"
-					class="text-gray-300 hover:text-gray-100">
-				Copyright &copy; 2021 we-evolve</a
-				>
+			<div class="text-sm mt-8 flex justify-center">
+				<a href="https://we-evolve.co.uk/" class="block text-gray-300 hover:text-gray-100 text-center">
+					<img src="/img/we-evolve-transparent.png" alt="we evolve" class="mb-2 max-w-xs" />
+					Copyright &copy; 2018&ndash;2021 we-evolve
+				</a>
 			</div>
 		</div>
 	</footer>
@@ -102,8 +101,8 @@ export default Vue.component('FooterSection', {
 			elsewhere: [
 				{ icon: 'twitter', href: 'https://twitter.com/stoogoff', colour: 'text-blue-400' },
 				{ icon: 'facebook', href: 'https://www.facebook.com/weevolvegames/', colour: 'text-blue-600' },
-				{ icon: 'itch', href: 'https://we-evolve.itch.io/', colour: 'text-black' },
-				{ title: 'DriveThruRPG', href: 'https://www.drivethrurpg.com/browse/pub/14996/we-evolve' },
+				{ icon: 'itch', href: 'https://we-evolve.itch.io/', colour: 'text-red-400' },
+				{ title: 'DriveThruRPG', href: 'https://www.drivethrurpg.com/browse/pub/14996/we-evolve', img: '/img/drivethrurpg.png' },
 			],
 			useful: [
 				{ title: 'About Us', href: '/support/about-us' },

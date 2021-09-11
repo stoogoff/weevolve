@@ -59,7 +59,7 @@ export default {
 				title: this.title,
 				description: this.game.summary.replace(/\*/g, ''),
 				url: `/games/${this.$route.params.game}`,
-				mainImage: this.game.banner,
+				image: `/img/${this.game.banner}`,
 			})
 		}
 	},

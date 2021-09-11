@@ -2,7 +2,7 @@
 const type = 'website'
 const url = 'https://we-evolve.co.uk'
 const title = 'we evolve'
-const description = 'Publisher of the Aegean and WILD role-playing games.'
+const description = 'Publisher of the Aegean and WILD role-playing games. Kickstarter for Aegean coming 1st October.'
 const image = '/img/kickstarter-banner.png'
 
 export default (meta) => {
