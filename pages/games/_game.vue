@@ -57,8 +57,8 @@ export default {
 			return meta({
 				type: 'article',
 				title: this.title,
-				description: this.game.summary.replace(/\*\*/g, ''),
-				url: `${this.baseUrl}/games/${this.$route.params.game}`,
+				description: this.game.summary.replace(/\*/g, ''),
+				url: `/games/${this.$route.params.game}`,
 				mainImage: this.game.banner,
 			})
 		}
@@ -67,7 +67,7 @@ export default {
 	head() {
 		return {
 			title: this.title,
-			meta: this.meta.meta,
+			meta: this.meta,
 			link: [
 				{ hid: 'canonical', rel: 'canonical', href: `${this.baseUrl}/games/${this.$route.params.game}` },
 			]

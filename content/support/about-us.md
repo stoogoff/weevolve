@@ -2,7 +2,7 @@
 title: About Us
 ---
 
-**we evolve** is a small time publisher creating tabletop role-playing games in Glasgow, UK. Originally started by Stoo Goff as a web development company, the brand moved into publishing in 2018 with the release of the **Aegean RPG**, quickly followed by **The Gaslight Club** Kickstarter for ZineQuest 2019 and the **WILD: Dream Dive Training Simulation** Kickstarter in 2020.
+**we evolve** is a small publisher creating tabletop role-playing games in Glasgow, UK. Originally started by Stoo Goff as a web development company, the brand moved into publishing in 2018 with the release of the **Aegean Quick Start Rules**, quickly followed by **The Gaslight Club** Kickstarter for ZineQuest 2019 and the **WILD: Dream Dive Training Simulation** Kickstarter in 2020.
 
 ## Stoo Goff
 
