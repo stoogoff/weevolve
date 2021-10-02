@@ -43,7 +43,11 @@ export default {
 			],
 			images: [
 				{
-					title: 'Currently in development',
+					title: 'Coming soon',
+					url: 'ap/action-potential-logo.png'
+				},
+				{
+					title: 'In development',
 					url: 'footfall/footfall-logo.png',
 				},
 			],
