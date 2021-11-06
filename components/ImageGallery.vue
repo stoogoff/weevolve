@@ -1,7 +1,7 @@
 <template>
 	<div class="lg:block grid grid-cols-3">
 		<div v-for="(image, idx) in images" :key="`image_${idx}`">
-			<div @click="showGallery(idx)">
+			<div class="cursor-pointer" @click="showGallery(idx)">
 				<image-caption :url="image" />
 			</div>
 		</div>
