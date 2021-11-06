@@ -12,12 +12,21 @@
 					</div>
 				</article>
 				<aside class="grid grid-cols-3 lg:block lg:w-3/12 lg:pl-6">
-					<image-caption
-						v-for="(image, idx) in images"
-						:key="`image_${idx}`"
-						:title="image.title"
-						:url="image.url"
-					/>
+					<div v-for="(image, idx) in images">
+						<nuxt-link :to="image.link" v-if="image.link">
+							<image-caption
+								:key="`image_${idx}`"
+								:title="image.title"
+								:url="image.url"
+							/>
+						</nuxt-link>
+						<image-caption
+							v-else
+							:key="`image_${idx}`"
+							:title="image.title"
+							:url="image.url"
+						/>
+					</div>
 				</aside>
 			</div>
 		</main-content>
@@ -43,8 +52,9 @@ export default {
 			],
 			images: [
 				{
-					title: 'Coming soon',
-					url: 'ap/action-potential-logo.png'
+					title: 'Now available!',
+					url: 'ap/cover-front.jpg',
+					link: 'games/action-potential',
 				},
 				{
 					title: 'In development',

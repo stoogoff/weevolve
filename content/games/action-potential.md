@@ -3,7 +3,7 @@ title: Action Potential
 sort: 3
 summary: |
   **Action Potential** is a Forged in the Dark tabletop role-playing game set in a transhuman, body-swapping, dystopian far-future. Players create unique scoundrels who come together to form a Crew. Together you do crime, and make your way through a hostile and unforgiving universe.
-banner: tgc/banner.jpg
+banner: ap/banner.jpg
 images:
   - ap/cover-front.jpg
   - ap/interior-chimera.png
