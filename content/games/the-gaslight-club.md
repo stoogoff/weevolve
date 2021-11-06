@@ -1,6 +1,6 @@
 ---
 title: The Gaslight Club
-sort: 3
+sort: 4
 summary: |
   *The Gaslight Club* is a role-playing game set in advanced theme park with the veneer of the early 20th Century. The players take on the roles of the theme park's hosts as they attempt to uncover the true nature of the world around them.
 banner: tgc/banner.jpg

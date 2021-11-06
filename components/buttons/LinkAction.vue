@@ -1,5 +1,5 @@
 <template>
-	<a :class="classList" :disabled="disabled" :href="to" v-if="isExternal">
+	<a :class="classList" :disabled="disabled" :href="to" v-if="isExternal || isDownload">
 		<slot />
 	</a>
 	<nuxt-link :class="classList" :disabled="disabled" :to="to" v-else>
@@ -36,6 +36,10 @@ export default Vue.component('LinkAction', {
 	computed: {
 		isExternal() {
 			return this.to.startsWith('http')
+		},
+
+		isDownload() {
+			return this.to.endsWith('.pdf')
 		},
 
 		classList() {
