@@ -12,7 +12,7 @@
 						<nuxt-content :document="game" />
 					</div>
 				</article>
-				<aside>
+				<aside class="lg:block lg:w-3/12 lg:pl-6">
 					<image-gallery :images="game.images" v-slot="props" />
 				</aside>
 			</div>

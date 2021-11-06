@@ -1,5 +1,5 @@
 <template>
-	<div class="grid grid-cols-3 lg:block lg:w-3/12 lg:pl-6">
+	<div class="lg:block grid grid-cols-3">
 		<div v-for="(image, idx) in images" :key="`image_${idx}`">
 			<div @click="showGallery(idx)">
 				<image-caption :url="image" />
