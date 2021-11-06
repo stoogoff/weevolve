@@ -13,7 +13,7 @@
 					</div>
 				</article>
 				<aside class="grid grid-cols-3 lg:block lg:w-3/12 lg:pl-6">
-					<image-caption :url="image" v-for="(image, idx) in game.images" :key="`image_${idx}`" />
+					<image-gallery :images="game.images" v-slot="props" />
 				</aside>
 			</div>
 		</main-content>
