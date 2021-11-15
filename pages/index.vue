@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<img src="/img/kickstarter-banner.png" class="block object-cover w-full" />
+		<img src="/img/aegean-home-banner.jpg" class="block object-cover w-full" />
 		<div class="w-full bg-gray-700 border-b-2 border-yellow-500 flex justify-center p-2">
 			<link-action :to="link.url" v-for="(link, idx) in links" :key="`link_${idx}`">{{ link.title }}</link-action>
 		</div>

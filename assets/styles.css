@@ -57,6 +57,9 @@ ol.list, .content ol {
 .content h2 {
 	@apply mt-4;
 }
+.content hr {
+	@apply m-4;
+}
 
 /* buttons */
 .btn {
