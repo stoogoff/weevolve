@@ -14,6 +14,9 @@ links:
     title: DriveThru
     url: https://www.drivethrurpg.com/product/375985/Action-Potential
   -
+    title: itch
+    url: https://we-evolve.itch.io/action-potential
+  -
     title: Downloads
     url: /dl/action-potential-sheets.pdf
 ---
