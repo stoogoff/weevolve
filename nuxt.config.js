@@ -1,5 +1,5 @@
 
-import meta from './utils/meta'
+import { meta, url, title } from './utils/meta'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -11,7 +11,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s | we evolve',
+    title: title(),
     htmlAttrs: {
       lang: 'en'
     },
@@ -23,7 +23,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { hid: 'canonical', rel: 'canonical', href: process.env.BASE_URL },
+      { hid: 'canonical', rel: 'canonical', href: url() },
     ]
   },
 
@@ -58,5 +58,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extractCSS: true,
   }
 }

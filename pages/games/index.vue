@@ -24,6 +24,7 @@
 </template>
 <script>
 import { sortByProperty } from '~/utils/list'
+import { meta, title, url } from '~/utils/meta'
 
 export default {
 	layout: 'default',
@@ -46,10 +47,16 @@ export default {
 	},
 
 	head() {
-		return {
+		const metadata = {
 			title: 'Games',
+			url: '/games/',
+		}
+
+		return {
+			title: title(metadata),
+			meta: meta(metadata),
 			link: [
-				{ hid: 'canonical', rel: 'canonical', href: `${this.baseUrl}/games/` },
+				{ hid: 'canonical', rel: 'canonical', href: url(metadata) },
 			]
 		}
 	},

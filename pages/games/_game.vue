@@ -20,7 +20,7 @@
 	</div>
 </template>
 <script>
-import meta from '~/utils/meta'
+import { meta, title, url } from '~/utils/meta'
 
 export default {
 	layout: 'home',
@@ -42,34 +42,22 @@ export default {
 		}
 	},
 
-	computed: {
-		title() {
-			return this.game ? this.game.title : ''
-		},
-
-		baseUrl() {
-			return this.$nuxt.context.env.baseUrl
-		},
-
-		meta() {
-			if(!this.game) return {}
-
-			return meta({
-				type: 'article',
-				title: this.title,
-				description: this.game.summary.replace(/\*/g, ''),
-				url: `/games/${this.$route.params.game}`,
-				image: `/img/${this.game.banner}`,
-			})
-		}
-	},
-
 	head() {
+		if(!this.game) return {}
+
+		const metadata = {
+			type: 'article',
+			title: this.game.title,
+			description: this.game.summary.replace(/\*/g, ''),
+			url: `/games/${this.$route.params.game}/`,
+			image: `/img/${this.game.banner}`,
+		}
+
 		return {
-			title: this.title,
-			meta: this.meta,
+			title: title(metadata),
+			meta: meta(metadata),
 			link: [
-				{ hid: 'canonical', rel: 'canonical', href: `${this.baseUrl}/games/${this.$route.params.game}` },
+				{ hid: 'canonical', rel: 'canonical', href: url(metadata) },
 			]
 		}
 	},
