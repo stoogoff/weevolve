@@ -3,22 +3,25 @@
 		<section v-if="games.length">
 			<h1>Games</h1>
 			<div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
-				<div class="shadow-lg cursor-pointer" v-for="(game, idx) in games" :key="idx" @click="navigateTo(game.path)">
-					<img class="w-full" :src="`/img/${game.images[0]}`" />
-					<div class="px-4 py-2">
-						<h1 class="text-xl font-gray-700 font-bold">{{ game.title }}</h1>
-						<p class="h-40 text-sm tracking-normal" v-html="$options.filters.markdownNoPara(game.summary)" />
-						<link-action block type="primary" :to="game.path">Read more</link-action>
-					</div>
-				</div>
+				<game-card
+					:game="game"
+					v-for="(game, idx) in games"
+					:key="`game_${idx}`"
+				/>
 			</div>
 		</section>
 
-		<section v-if="supplements.length">
+		<section v-if="supplements.length" class="pt-10">
 			<h2>Supplements</h2>
-			<ul>
-				<li v-for="(supplement, idx) in supplements" :key="idx">{{ supplement.title }}</li>
-			</ul>
+			<p>Free and PWYW supplements for games by other publishers.</p>
+			<div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0 pt-10">
+				<game-card
+					:game="supplement"
+					v-for="(supplement, idx) in supplements"
+					:key="`supplement_${idx}`"
+					:url="`/games/supplements/${supplement.slug}`"
+				/>
+			</div>
 		</section>
 	</main>
 </template>
@@ -31,6 +34,11 @@ export default {
 
 	async fetch() {
 		this.games = (await this.$content('games').fetch()).sort(sortByProperty('sort'))
+
+		const supplements = (await this.$content('supplements').fetch()).sort(sortByProperty('sort'))
+		const published = this.games.map(g => g.title)
+
+		this.supplements = supplements.filter(s => published.indexOf(s.for) === -1)
 	},
 
 	data() {
@@ -38,12 +46,6 @@ export default {
 			games: [],
 			supplements: [],
 		}
-	},
-
-	computed: {
-		baseUrl() {
-			return this.$nuxt.context.env.baseUrl
-		},
 	},
 
 	head() {
@@ -59,12 +61,6 @@ export default {
 				{ hid: 'canonical', rel: 'canonical', href: url(metadata) },
 			]
 		}
-	},
-
-	methods: {
-		navigateTo(path) {
-			this.$router.push(path)
-		},
 	},
 }
 </script>

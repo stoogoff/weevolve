@@ -74,7 +74,7 @@
 			<div class="text-sm mt-8 flex justify-center">
 				<a href="https://we-evolve.co.uk/" class="block text-gray-300 hover:text-gray-100 text-center">
 					<img src="/img/we-evolve-transparent.png" alt="we evolve" class="mb-2 max-w-xs" />
-					Copyright &copy; 2018&ndash;2021 we-evolve
+					Copyright &copy; 2018&ndash;{{ (new Date()).getFullYear() }} we-evolve
 				</a>
 			</div>
 		</div>

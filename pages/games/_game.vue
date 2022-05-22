@@ -16,6 +16,17 @@
 					<image-gallery :images="game.images" v-slot="props" />
 				</aside>
 			</div>
+			<section v-if="supplements.length" class="pt-10">
+				<h2>Supplements</h2>
+				<div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0 pt-10">
+					<game-card
+						:game="supplement"
+						v-for="(supplement, idx) in supplements"
+						:key="`supplement_${idx}`"
+						:url="`/games/supplements/${supplement.slug}`"
+					/>
+				</div>
+			</section>
 		</main-content>
 	</div>
 </template>
@@ -30,6 +41,10 @@ export default {
 
 		try {
 			this.game = await this.$content(`/games/${params.game}`).fetch()
+
+			const supplements = await this.$content('supplements').fetch()
+
+			this.supplements = supplements.filter(s => s.for === this.game.title)
 		}
 		catch(error) {
 			this.game = await this.$content('404').fetch()
@@ -38,7 +53,8 @@ export default {
 
 	data() {
 		return {
-			game: null
+			game: null,
+			supplements: [],
 		}
 	},
 
