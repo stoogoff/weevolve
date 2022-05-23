@@ -1,7 +1,7 @@
 <template>
-	<loading-spinner v-if="$fetchState.pending" />
+	<loading-spinner v-if="!supplement" />
 	<div v-else>
-		<main>
+		<main-content>
 			<header>
 				<h1 class="w-8/12" style="margin-left: 33%">{{ supplement.title }}</h1>
 			</header>
@@ -16,6 +16,12 @@
 					>
 						Available on {{ link.title }}
 					</link-action>
+					<link-action
+						:to="`/games/${game.slug}`"
+						class="w-full mt-4 lg:mt-0"
+					>
+						&laquo; Back to {{ game.title }}
+					</link-action>
 				</aside>
 				<article class="w-full lg:w-8/12 mb-6 lg:mb-0">
 					<div class="content mb-8">
@@ -24,7 +30,7 @@
  					<image-gallery class="lg:grid gap-x-2" :images="galleryImages" />
 				</article>
 			</div>
-		</main>
+		</main-content>
 	</div>
 </template>
 <script>
@@ -33,23 +39,27 @@ import tail from 'lodash/tail'
 import head from 'lodash/head'
 
 export default {
-	layout: 'default',
-
-	async fetch() {
-		const { params } = this.$nuxt.context
-
-		try {
-			this.supplement = await this.$content(`/supplements/${params.supplement}`).fetch()
-		}
-		catch(error) {
-			this.supplement = await this.$content('404').fetch()
+	props: {
+		game: {
+			type: Object,
+			required: true,
+		},
+		supplements: {
+			type: Array,
+			default: [],
 		}
 	},
 
 	data() {
 		return {
-			supplement: null
+			supplement: null,
 		}
+	},
+
+	mounted() {
+		const { params } = this.$nuxt.context
+
+		this.supplement = this.supplements.find(s => s.slug === params.supplement)
 	},
 
 	computed: {

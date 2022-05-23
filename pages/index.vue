@@ -10,6 +10,9 @@
 					<div class="content mb-8">
 						<markdown-content content="home" />
 					</div>
+					<image-gallery class="lg:grid gap-x-2" :images="gallery" />
+					<hr />
+					<p class="mt-4">Checkout the games section for other games published by we-evolve.</p>
 				</article>
 				<aside class="grid grid-cols-3 lg:block lg:w-3/12 lg:pl-6">
 					<div v-for="(image, idx) in images">
@@ -61,6 +64,11 @@ export default {
 					url: 'footfall/footfall-logo.png',
 				},
 			],
+			gallery: [
+				'aegean/aegean-core.jpg',
+				'aegean/book-of-heroes.jpg',
+				'aegean/book-of-empires.jpg',
+			]
 		}
 	},
 }
