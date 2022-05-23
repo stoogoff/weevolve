@@ -1,7 +1,7 @@
 ---
 title: Aegean Adventures
 for: Aegean
-sort: 3
+sort: 1
 summary: |
   **AEGEAN ADVENTURES** is a collection of five original scenarios for the **AEGEAN** *Quick Start Rules* focusing on characters from the new city of Vlokis. The adventures can be played separately or linked together to form an extended campaign.
 images:

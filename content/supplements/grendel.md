@@ -1,7 +1,7 @@
 ---
 title: Grendel
 for: Alien
-sort: 3
+sort: 1
 summary: |
   **GRENDEL** is a system gazetteer and campaign book designed for the Alien Role-Playing Game by Fria Ligan. The 41 page, full-colour booklet includes a full description of the Grendel system plus a three part adventure called *Bug Hunt*.
 images:

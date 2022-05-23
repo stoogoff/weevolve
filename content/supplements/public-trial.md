@@ -1,7 +1,7 @@
 ---
 title: The Public Trial Adventure
 for: WILD
-sort: 3
+sort: 1
 summary: |
   In this adventure for **WILD: Dream Dive Training Simulation**, the PCs enter the dreams of **Paul Jackson**, an ex-soldier in the British Army, to test the therapeutic properties of the **ALIS** device.
 images:

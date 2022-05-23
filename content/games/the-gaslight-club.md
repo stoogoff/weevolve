@@ -7,9 +7,9 @@ banner: tgc/banner.jpg
 images:
   - tgc/cover-front.jpg
   - tgc/cover-back.jpg
-  - tgc/charsheet.jpg
   - tgc/interior-entertainer.jpg
   - tgc/interior-intro.jpg
+  - tgc/charsheet.jpg
 links:
   -
     title: itch

@@ -3,9 +3,9 @@ title: Enemy of the Hearth
 for: Pendragon
 sort: 3
 summary: |
-  **GRENDEL** is a system gazetteer and campaign book designed for the Alien Role-Playing Game by Fria Ligan. The 41 page, full-colour booklet includes a full description of the Grendel system plus a three part adventure called *Bug Hunt*.
+  *Enemy of the Hearth* is a scenario for King Arthur Pendragon. It follows the fate of a knight and their fluctuating wealth and poverty.
 images:
-  - pendragon/enemy-of-the-hearth-cover.png
+  - pendragon/enemy-of-the-hearth-cover.jpg
   - pendragon/enemy-of-the-hearth-preview.png
   - pendragon/sir-swyn-coa.png
 links:

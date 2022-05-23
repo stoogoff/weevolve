@@ -1,7 +1,7 @@
 ---
 title: Rebel Rising
 for: Star Wars
-sort: 3
+sort: 2
 summary: |
   *Rebel Rising* is a collection of scenarios for the Star Wars RPG by Fantasy Flight Games. There are four scenarios designed for a group of characters with ties to the Rebel Alliance. 
 images:

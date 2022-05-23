@@ -1,7 +1,7 @@
 ---
 title: Scenario Bundle 1
 for: Action Potential
-sort: 3
+sort: 1
 summary: |
   This bundle contains two stand-alone scenarios for **Action Potential**. Each document gives you information on the Score, as well as vivid descriptions of new locations, and NPCs with clear personal motivation. Plenty of hooks to get your players stuck into the story!
 images:
