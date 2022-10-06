@@ -14,7 +14,7 @@ links:
     url: https://www.wildrpg.com/
   -
     title: GameFound
-    url: https://gamefound.com/projects/stoo/wild-dream-dive-training-simulation/#/
+    url: https://gamefound.com/projects/stoo/wild-dream-dive-training-simulation
   -
     title: itch
     url: https://we-evolve.itch.io/wild-dream-dive-training-simulation

@@ -13,6 +13,9 @@ links:
   -
     title: website
     url: https://www.aegeanrpg.com/
+  -
+    title: Pre-order
+    url: https://gamefound.com/projects/stoo/aegean-rpg-mythic-roleplaying-across-the-aegean-sea
   - 
     title: itch
     url: https://we-evolve.itch.io/aegean-qsr

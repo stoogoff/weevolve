@@ -45,8 +45,8 @@ export default {
 		return {
 			links: [
 				{
-					title: 'Aegean Kickstarter',
-					url: 'https://www.kickstarter.com/projects/stoo-goff/aegean-mythic-role-playing-across-the-aegean-sea',
+					title: 'Aegean Pre-Orders',
+					url: 'https://gamefound.com/projects/stoo/aegean-rpg-mythic-roleplaying-across-the-aegean-sea',
 				},
 				{
 					title: 'Aegean Website',
@@ -65,9 +65,18 @@ export default {
 				},
 			],
 			gallery: [
-				'aegean/aegean-core.jpg',
-				'aegean/book-of-heroes.jpg',
-				'aegean/book-of-empires.jpg',
+				{
+					title: 'Aegean Core',
+					url: 'aegean/aegean-core.jpg',
+				},
+				{
+					title: 'Book of Heroes',
+					url: 'aegean/book-of-heroes.jpg',
+				},
+				{
+					title: 'Book of Empires',
+					url: 'aegean/book-of-empires.jpg',
+				},
 			]
 		}
 	},
