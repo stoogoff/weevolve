@@ -5,10 +5,13 @@ summary: |
   **AEGEAN** is a tabletop role-playing game about a group of mythic heroes building a new, free city on the shores of the Aegean Sea. There are neighbouring cities to trade or war with, monsters to kill, gods to appease, deceptions, negotiations and bloody skirmishes.
 banner: aegean/banner.jpg
 images:
-  - aegean/qsr-cover-800.jpg
-  - aegean/layout-qsr-contents.jpg
-  - aegean/layout-qsr-pan.jpg
-  - aegean/layout-qsr-scars.jpg
+  - aegean/aegean-core.jpg
+  - aegean/01-chargen.png
+  - aegean/02-equipment.png
+  - aegean/03-the-games.png
+  - aegean/04-mystery-cults.png
+  - aegean/05-adversaries.png
+  - aegean/06-factions.png
 links:
   -
     title: website
@@ -18,10 +21,10 @@ links:
     url: https://gamefound.com/projects/stoo/aegean-rpg-mythic-roleplaying-across-the-aegean-sea
   - 
     title: itch
-    url: https://we-evolve.itch.io/aegean-qsr
+    url: https://we-evolve.itch.io/aegean
   - 
     title: DriveThru
-    url: https://www.drivethrurpg.com/product/278997/Aegean-Quick-Start
+    url: https://www.drivethrurpg.com/product/413560/Aegean--Mythic-Roleplaying-in-Ancient-Greece
 ---
 
 **AEGEAN** is a tabletop role-playing game about a group of mythic heroes building a new, free city on the shores of the Aegean Sea. There are neighbouring cities to trade or war with, monsters to kill, gods to appease, deceptions, negotiations and bloody skirmishes.

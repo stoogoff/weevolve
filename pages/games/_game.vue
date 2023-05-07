@@ -7,6 +7,7 @@
 </template>
 <script>
 import { meta, title, url } from '~/utils/meta'
+import { sortByProperty } from '~/utils/list'
 import tail from 'lodash/tail'
 
 export default {
@@ -20,7 +21,9 @@ export default {
 
 			const supplements = await this.$content('supplements').fetch()
 
-			this.supplements = supplements.filter(s => s.for === this.game.title)
+			this.supplements = supplements
+				.filter(s => s.for === this.game.title)
+				.sort(sortByProperty('sort'))
 		}
 		catch(error) {
 			this.game = await this.$content('404').fetch()
