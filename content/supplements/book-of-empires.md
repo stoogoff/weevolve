@@ -3,7 +3,7 @@ title: Book of Empires
 for: Aegean
 sort: 2
 summary: |
-  **AEGEAN ADVENTURES** is a collection of five original scenarios for the **AEGEAN** *Quick Start Rules* focusing on characters from the new city of Vlokis. The adventures can be played separately or linked together to form an extended campaign.
+  The *Book of Empires* is a setting and adventure supplement for the **AEGEAN** — the tabletop roleplaying game of mythic adventure in ancient Greece. Take your heroes to Kreta, the largest of the Aegean islands and discover the secrets of Labyrinth. Visit Troy in its glory days before it prepares for war. Face down the might of the Persian Empire as it seeks to conquer all lands to the West.
 images:
   - aegean/book-of-empires.jpg
 links:
