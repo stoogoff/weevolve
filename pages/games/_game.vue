@@ -7,7 +7,7 @@
 </template>
 <script>
 import { meta, title, url } from '~/utils/meta'
-import { sortByProperty } from '~/utils/list'
+import { sortByProperty } from 'we-ui/utils/list'
 import tail from 'lodash/tail'
 
 export default {
@@ -17,12 +17,10 @@ export default {
 		const { params } = this.$nuxt.context
 
 		try {
-			this.game = await this.$content(`/games/${params.game}`).fetch()
+			await this.$state.fetch()
 
-			const supplements = await this.$content('supplements').fetch()
-
-			this.supplements = supplements
-				.filter(s => s.for === this.game.title)
+			this.game = this.$state.games().findBySlug(params.game)
+			this.supplements = this.$state.supplements().filterByProperty('for', this.game.title)
 				.sort(sortByProperty('sort'))
 		}
 		catch(error) {

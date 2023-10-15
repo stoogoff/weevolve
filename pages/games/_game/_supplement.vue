@@ -24,9 +24,7 @@
 					</link-action>
 				</aside>
 				<article class="w-full lg:w-8/12 mb-6 lg:mb-0">
-					<div class="content mb-8">
-						<nuxt-content :document="supplement" />
-					</div>
+					<div class="content mb-8" v-html="$options.filters.markdown(supplement.content)" />
  					<image-gallery class="lg:grid gap-x-2" :images="galleryImages" />
 				</article>
 			</div>

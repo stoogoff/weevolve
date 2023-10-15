@@ -26,19 +26,19 @@
 	</main>
 </template>
 <script>
-import { sortByProperty } from '~/utils/list'
 import { meta, title, url } from '~/utils/meta'
 
 export default {
 	layout: 'default',
 
 	async fetch() {
-		this.games = (await this.$content('games').fetch()).sort(sortByProperty('sort'))
+		await this.$state.fetch()
 
-		const supplements = (await this.$content('supplements').fetch()).sort(sortByProperty('sort'))
+		this.games = this.$state.games().sortByProperty('sort')
+
 		const published = this.games.map(g => g.title)
 
-		this.supplements = supplements.filter(s => published.indexOf(s.for) === -1)
+		this.supplements = this.$state.supplements().sortByProperty('sort').filter(s => published.indexOf(s.for) === -1)
 	},
 
 	data() {

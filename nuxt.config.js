@@ -3,7 +3,7 @@ import { meta, url, title } from './utils/meta'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
 
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000'
@@ -35,6 +35,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/filters.js',
+    '~/plugins/state',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -49,11 +50,17 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    'we-ui/nuxt',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
     '@nuxt/content',
+  ],
+
+  serverMiddleware: [
+    '~/server/api/index.js',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

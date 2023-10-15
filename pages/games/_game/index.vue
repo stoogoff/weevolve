@@ -15,9 +15,7 @@
 					</link-action>
 				</aside>
 				<article class="w-full lg:w-2/3 mb-6 lg:mb-0">
-					<div class="content mb-8">
-						<nuxt-content :document="game" />
-					</div>
+					<div class="content mb-8" v-html="$options.filters.markdown(game.content)" />
 					<image-gallery class="lg:grid gap-x-2" :images="galleryImages" />
 					<section v-if="supplements.length" class="pt-10">
 						<div

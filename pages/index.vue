@@ -45,7 +45,7 @@ export default {
 		return {
 			links: [
 				{
-					title: 'Aegean Pre-Orders',
+					title: 'Buy Aegean',
 					url: 'https://gamefound.com/projects/stoo/aegean-rpg-mythic-roleplaying-across-the-aegean-sea',
 				},
 				{

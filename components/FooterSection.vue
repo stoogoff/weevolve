@@ -83,12 +83,13 @@
 <script>
 
 import Vue from 'vue'
-import { sortByProperty } from '~/utils/list'
 import { id } from '~/utils/string'
 
 export default Vue.component('FooterSection', {
 	async fetch() {
-		const games = (await this.$content('games').only(['title', 'sort', 'path']).fetch()).sort(sortByProperty('sort'))
+		await this.$state.fetch()
+
+		const games = this.$state.games().sortByProperty('sort')
 
 		this.games = games.map(game => ({
 			title: game.title,
