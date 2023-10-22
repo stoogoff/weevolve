@@ -20,7 +20,7 @@
 									:href="item.href"
 									target="_blank"
 								>
-									<img :src="item.img" :alt="item.title" class="max-w-xs mt-2" />
+									<cdn-image :source="item.img" :alt="item.title" class="max-w-xs mt-2" />
 								</a>
 							</div>
 						</span>
@@ -73,7 +73,7 @@
 			</div>
 			<div class="text-sm mt-8 flex justify-center">
 				<a href="https://we-evolve.co.uk/" class="block text-gray-300 hover:text-gray-100 text-center">
-					<img src="/img/we-evolve-transparent.png" alt="we evolve" class="mb-2 max-w-xs" />
+					<cdn-image source="/img/we-evolve-transparent.png" alt="we evolve" class="mb-2 max-w-xs" />
 					Copyright &copy; 2018&ndash;{{ (new Date()).getFullYear() }} we-evolve
 				</a>
 			</div>

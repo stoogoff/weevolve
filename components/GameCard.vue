@@ -1,6 +1,6 @@
 <template>
 	<div class="shadow-lg cursor-pointer flex flex-col" @click="navigateTo">
-		<img class="w-full" :src="`/img/${game.images[0]}`" />
+		<cdn-image class="w-full" :source="`/img/${game.images[0]}`" :alt="game.title" />
 		<div class="px-4 py-2 flex-grow">
 			<header>
 				<h1 class="text-xl font-gray-700 font-bold">{{ game.title }}</h1>

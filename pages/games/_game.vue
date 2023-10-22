@@ -1,7 +1,7 @@
 <template>
 	<loading-spinner v-if="$fetchState.pending" />
 	<div v-else>
-		<img :src="`/img/${game.banner}`" class="block object-cover w-full" />
+		<cdn-image :source="`/img/${game.banner}`" :alt="game.title" class="block object-cover w-full" />
 		<nuxt-child :game="game" :supplements="supplements" />
 	</div>
 </template>

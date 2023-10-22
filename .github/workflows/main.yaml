@@ -1,38 +1,59 @@
-name: CI/CD
+name: Docker Image CI
+
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
 
-    - name: Configure AWS Credentials
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: eu-west-1
+        aws-region: eu-west-2
 
-    - name: Build static site
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-    - run: yarn install && yarn generate
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Deploy static site to S3 bucket
-      run: aws s3 sync ./dist/ s3://${{ secrets.AWS_BUCKET }} --delete
-
-    - name: Invalidate CloudFront
-      uses: chetan/invalidate-cloudfront-action@master
+    - name: Build, tag, and push the image to Amazon ECR
+      id: build-image
       env:
-        DISTRIBUTION: ${{ secrets.AWS_DISTRIBUTION }}
-        PATHS: '/ /*'
-        AWS_REGION: 'us-east-1'
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+        ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        # Build a docker container and push it to ECR 
+        docker build -t weevolve \
+          --build-arg db_user=${{ secrets.DB_USER }} \
+          --build-arg db_password=${{ secrets.DB_PASSWORD }} \
+          .
+        docker tag weevolve:latest $ECR_REGISTRY/$ECR_REPOSITORY:latest
+        docker tag weevolve:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+#    - name: Pull and redeploy docker container
+#      id: deploy-image
+#      uses: appleboy/ssh-action@v0.1.6
+#      with:
+#        host: ${{ secrets.HOST }}
+#        username: ubuntu
+#        key: ${{ secrets.ACTION_PRIVATE_KEY }} -- TODO
+#        env:
+#          ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+#          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
+#        script: |
+#          docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
+#          docker stop webserver
+#          docker rm webserver
+#          docker run --name webserver -p 3000:3000 -d $ECR_REGISTRY/$ECR_REPOSITORY:latest
+#          docker ps

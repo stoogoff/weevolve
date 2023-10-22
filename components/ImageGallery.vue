@@ -8,10 +8,10 @@
 		</div>
 		<overlay-fade v-if="showFull !== null">
 			<div class="p-10 h-screen">
-				<img class="max-h-full p-1 bg-white border border-black" :src="`/img/${currentImage()}`" :key="currentImage()" />
-				<span class="absolute top-4 right-4"><icon-action icon="close" outlined @click="hideGallery()" /></span>
-				<span class="absolute bottom-4 left-4"><icon-action icon="prev" outlined @click="showPrev()" /></span>
-				<span class="absolute bottom-4 right-4"><icon-action icon="next" outlined @click="showNext()" /></span>
+				<cdn-image class="max-h-full p-1 bg-white border border-black" :source="`/img/${currentImage()}`" :key="currentImage()" />
+				<span class="absolute top-4 right-4"><icon-action icon="close" outlined @click="hideGallery" /></span>
+				<span class="absolute bottom-4 left-4"><icon-action icon="prev" outlined @click="showPrev" /></span>
+				<span class="absolute bottom-4 right-4"><icon-action icon="next" outlined @click="showNext" /></span>
 			</div>
 		</overlay-fade>
 	</div>

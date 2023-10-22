@@ -23,7 +23,7 @@
 							:key="`supplement_${idx}`"
 							class="mb-6 flex"
 						>
-							<img class="w-3/12 pr-6" :src="`/img/${supplement.images[0]}`" />
+							<cdn-image class="w-3/12 pr-6" :source="`/img/${supplement.images[0]}`" :alt="supplement.title" />
 							<div class="w-9/12">
 								<h3 class="text-xl font-bold">{{ supplement.title }}</h3>
 								<p class="text-sm tracking-normal" v-html="$options.filters.markdownNoPara(supplement.summary)" />

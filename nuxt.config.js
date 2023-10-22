@@ -6,7 +6,8 @@ export default {
   target: 'server',
 
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    cdn: process.env.CDN_URL,
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head

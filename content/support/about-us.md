@@ -12,6 +12,6 @@ The *Aegean* RPG was successfully funded on Kickstarter by 427 backers who raise
 
 ## Stoo Goff
 
-![Stoo Goff](/img/stoo-goff.jpg)
+![Stoo Goff](https://cdn.we-evolve.co.uk/img/stoo-goff.jpg)
 
 **Stoo Goff** is a programmer, game designer, musician and the owner of **we evolve**. He is a writer hailing from Norwich, now living in Glasgow. He is the designer and publisher behind the *Aegean RPG*, *The Gaslight Club* zine RPG, plus the writer and publisher of a number of supplements for a variety of RPGs. When not buried beneath a mountain of programming code or dreaming up new worlds and the rules which guide them, he is also the audio engineer behind the *Tales from the Aletheian Society* podcast.
