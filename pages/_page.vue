@@ -1,11 +1,9 @@
 <template>
-	<main>
-		<markdown-content :content="content" />
-	</main>
+	<markdown-content :content="content" />
 </template>
 <script>
 export default {
-	layout: 'image',
+	layout: 'default',
 
 	computed: {
 		content() {

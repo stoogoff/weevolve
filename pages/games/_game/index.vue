@@ -1,46 +1,44 @@
 <template>
-	<div>
-		<main-content>
-			<div class="flex flex-wrap">
-				<aside class="lg:block lg:w-1/3 lg:pr-6 pb-6">
-					<image-caption :url="coverImage" />
-					<link-action
-						:to="link.url"
-						v-for="(link, idx) in game.links"
-						:key="`link_${idx}`"
-						class="mt-4 mb-4 lg:mt-0"
-						block
+	<main-content>
+		<div class="flex flex-wrap">
+			<aside class="lg:block lg:w-1/3 lg:pr-6 pb-6">
+				<image-caption :url="coverImage" />
+				<link-action
+					:to="link.url"
+					v-for="(link, idx) in game.links"
+					:key="`link_${idx}`"
+					class="mt-4 mb-4 lg:mt-0"
+					block
+				>
+					{{ link.title }}
+				</link-action>
+			</aside>
+			<article class="w-full lg:w-2/3 mb-6 lg:mb-0">
+				<div class="content mb-8" v-html="$options.filters.markdown(game.content)" />
+				<image-gallery class="lg:grid gap-x-2" :images="galleryImages" />
+				<section v-if="supplements.length" class="pt-10">
+					<div
+						v-for="(supplement, idx) in supplements"
+						:key="`supplement_${idx}`"
+						class="mb-6 flex"
 					>
-						{{ link.title }}
-					</link-action>
-				</aside>
-				<article class="w-full lg:w-2/3 mb-6 lg:mb-0">
-					<div class="content mb-8" v-html="$options.filters.markdown(game.content)" />
-					<image-gallery class="lg:grid gap-x-2" :images="galleryImages" />
-					<section v-if="supplements.length" class="pt-10">
-						<div
-							v-for="(supplement, idx) in supplements"
-							:key="`supplement_${idx}`"
-							class="mb-6 flex"
-						>
-							<cdn-image class="w-3/12 pr-6" :source="`/img/${supplement.images[0]}`" :alt="supplement.title" />
-							<div class="w-9/12">
-								<h3 class="text-xl font-bold">{{ supplement.title }}</h3>
-								<p class="text-sm tracking-normal" v-html="$options.filters.markdownNoPara(supplement.summary)" />
-								<link-action
-									block
-									type="primary"
-									:to="`/games/${game.slug}/${supplement.slug}`"
-								>
-									Read more
-								</link-action>
-							</div>
+						<cdn-image class="w-3/12 pr-6" :source="`/img/${supplement.images[0]}`" :alt="supplement.title" />
+						<div class="w-9/12">
+							<h3 class="text-xl font-bold">{{ supplement.title }}</h3>
+							<p class="text-sm tracking-normal" v-html="$options.filters.markdownNoPara(supplement.summary)" />
+							<link-action
+								block
+								type="primary"
+								:to="`/games/${game.slug}/${supplement.slug}`"
+							>
+								Read more
+							</link-action>
 						</div>
-					</section>
-				</article>
-			</div>
-		</main-content>
-	</div>
+					</div>
+				</section>
+			</article>
+		</div>
+	</main-content>
 </template>
 <script>
 import { meta, title, url } from '~/utils/meta'

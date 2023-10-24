@@ -1,28 +1,26 @@
 <template>
 	<loading-spinner v-if="$fetchState.pending" />
 	<div v-else>
-		<main>
-			<header>
-				<h1 class="w-8/12" style="margin-left: 33%">{{ supplement.title }}</h1>
-			</header>
-			<div class="flex flex-wrap">
-				<aside class="lg:block lg:w-4/12 lg:pr-6 pb-6">
-					<image-caption :url="coverImage" />
-					<link-action
-						:to="link.url"
-						v-for="(link, idx) in supplement.links"
-						:key="`link_${idx}`"
-						class="w-full mt-4 lg:mt-0"
-					>
-						Available on {{ link.title }}
-					</link-action>
-				</aside>
-				<article class="w-full lg:w-8/12 mb-6 lg:mb-0">
-					<div class="content mb-8" v-html="$options.filters.markdown(supplement.content)" />
- 					<image-gallery class="lg:grid gap-x-2" :images="galleryImages" />
-				</article>
-			</div>
-		</main>
+		<header>
+			<h1 class="w-8/12" style="margin-left: 33%">{{ supplement.title }}</h1>
+		</header>
+		<div class="flex flex-wrap">
+			<aside class="lg:block lg:w-4/12 lg:pr-6 pb-6">
+				<image-caption :url="coverImage" />
+				<link-action
+					:to="link.url"
+					v-for="(link, idx) in supplement.links"
+					:key="`link_${idx}`"
+					class="w-full mt-4 lg:mt-0"
+				>
+					Available on {{ link.title }}
+				</link-action>
+			</aside>
+			<article class="w-full lg:w-8/12 mb-6 lg:mb-0">
+				<div class="content mb-8" v-html="$options.filters.markdown(supplement.content)" />
+					<image-gallery class="lg:grid gap-x-2" :images="galleryImages" />
+			</article>
+		</div>
 	</div>
 </template>
 <script>

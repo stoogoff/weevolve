@@ -1,7 +1,5 @@
 <template>
-	<main>
-		<markdown-content content="support/about-us" />
-	</main>
+	<markdown-content content="support/about-us" />
 </template>
 <script>
 import { title } from '~/utils/meta'

@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<div>
 		<section v-if="games.length">
 			<h1>Games</h1>
 			<div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
@@ -23,7 +23,7 @@
 				/>
 			</div>
 		</section>
-	</main>
+	</div>
 </template>
 <script>
 import { meta, title, url } from '~/utils/meta'
