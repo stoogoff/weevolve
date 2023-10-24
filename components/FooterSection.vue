@@ -107,6 +107,7 @@ export default Vue.component('FooterSection', {
 			],
 			useful: [
 				{ title: 'About Us', href: '/support/about-us' },
+				{ title: 'Appearances', href: '/appearances' },
 				{ title: 'aegeanrpg.com', href: 'https://www.aegeanrpg.com/', external: true },
 				{ title: 'wildrpg.com', href: 'https://www.wildrpg.com/', external: true },
 
