@@ -1,28 +1,31 @@
 <template>
 	<div>
-		<section v-if="games.length">
-			<h1>Games</h1>
-			<div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
-				<game-card
-					:game="game"
-					v-for="(game, idx) in games"
-					:key="`game_${idx}`"
-				/>
-			</div>
-		</section>
+		<loading-spinner v-if="$fetchState.pending" />
+		<div v-else>
+			<section v-if="games.length">
+				<h1>Games</h1>
+				<div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
+					<game-card
+						:game="game"
+						v-for="(game, idx) in games"
+						:key="`game_${idx}`"
+					/>
+				</div>
+			</section>
 
-		<section v-if="supplements.length" class="pt-10">
-			<h2>Supplements</h2>
-			<p>Free and PWYW supplements for games by other publishers.</p>
-			<div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0 pt-10">
-				<game-card
-					:game="supplement"
-					v-for="(supplement, idx) in supplements"
-					:key="`supplement_${idx}`"
-					:url="`/games/supplements/${supplement.slug}`"
-				/>
-			</div>
-		</section>
+			<section v-if="supplements.length" class="pt-10">
+				<h2>Supplements</h2>
+				<p>Free and PWYW supplements for games by other publishers.</p>
+				<div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0 pt-10">
+					<game-card
+						:game="supplement"
+						v-for="(supplement, idx) in supplements"
+						:key="`supplement_${idx}`"
+						:url="`/games/supplements/${supplement.slug}`"
+					/>
+				</div>
+			</section>
+		</div>
 	</div>
 </template>
 <script>

@@ -20,10 +20,12 @@
 					<div
 						v-for="(supplement, idx) in supplements"
 						:key="`supplement_${idx}`"
-						class="mb-6 flex"
+						class="mb-6 md:flex"
 					>
-						<cdn-image class="w-3/12 pr-6" :source="`/img/${supplement.images[0]}`" :alt="supplement.title" />
-						<div class="w-9/12">
+						<div class="md:w-3/12 md:pr-6">
+							<cdn-image :source="`/img/${supplement.images[0]}`" :alt="supplement.title" />
+						</div>
+						<div class="md:w-9/12">
 							<h3 class="text-xl font-bold">{{ supplement.title }}</h3>
 							<p class="text-sm tracking-normal" v-html="$options.filters.markdownNoPara(supplement.summary)" />
 							<link-action

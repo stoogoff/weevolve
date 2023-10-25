@@ -9,8 +9,8 @@ const MARKDOWN_CONFIG = {
 	xhtml: true,
 }
 
-Vue.filter('markdown', val => (marked(val, MARKDOWN_CONFIG)))
-Vue.filter('markdownNoPara', val => (marked(val, MARKDOWN_CONFIG).replace('<p>', '').replace('</p>', '').trim()))
+Vue.filter('markdown', val => (marked.parse(val, MARKDOWN_CONFIG)))
+Vue.filter('markdownNoPara', val => (marked.parse(val, MARKDOWN_CONFIG).replace('<p>', '').replace('</p>', '').trim()))
 
 Vue.filter('date', value => {
 	if(!value) return ''

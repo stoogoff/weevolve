@@ -1,12 +1,14 @@
 <template>
 	<div>
 		<h1>Appearances</h1>
+		<loading-spinner v-if="$fetchState.pending" />
 		<article
+			v-else
 			v-for="appearance in appearances"
 			:key="appearance.path"
-			class="mb-6 flex pb-6 border-b border-gray-200 last:border-b-0"
+			class="mb-6 md:flex pb-6 border-b border-gray-200 last:border-b-0"
 		>
-			<div class="w-9/12">
+			<div class="md:w-9/12">
 				<h3 class="text-xl font-bold text-left">{{ appearance.title }}</h3>
 				<aside class="uppercase text-xs flex text-gray-600 mb-4">
 					<icon-view icon="calendar" />
@@ -17,20 +19,23 @@
 				<p class="content" v-html="$options.filters.markdownNoPara(appearance.description)" />
 				<div>
 					<a v-if="appearance.link" :href="appearance.link.url" class="link">{{ appearance.link.title }}</a>
-					<iframe v-if="appearance.embed" width="560" height="315" :src="appearance.embed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					<iframe v-if="appearance.embed" style="max-width: 100%;" width="560" height="315" :src="appearance.embed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 				</div>
 			</div>
-			<cdn-image
-				v-if="appearance.logo"
-				class="w-3/12 pr-6"
-				:source="`/img/${appearance.logo}`"
-				:alt="appearance.title"
-			/>
+			<div class="mt-4 md:mt-0 md:w-3/12 md:pr-6">
+				<cdn-image
+					v-if="appearance.logo"
+					:source="`/img/${appearance.logo}`"
+					:alt="appearance.title"
+				/>
+			</div>
 		</article>
 	</div>
 </template>
 
 <script>
+
+import { title, meta, url } from '~/utils/meta'
 
 export default {
 	layout: 'default',
@@ -44,6 +49,21 @@ export default {
 	data() {
 		return {
 			appearances: []
+		}
+	},
+
+	head() {
+		const metadata = {
+			title: 'Appearances',
+			url: '/appearances/',
+		}
+
+		return {
+			title: title(metadata),
+			meta: meta(metadata),
+			link: [
+				{ hid: 'canonical', rel: 'canonical', href: url(metadata) },
+			]
 		}
 	},
 }

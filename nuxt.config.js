@@ -6,7 +6,6 @@ export default {
   target: 'server',
 
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
     cdn: process.env.CDN_URL,
   },
 
@@ -64,8 +63,17 @@ export default {
     '~/server/api/index.js',
   ],
 
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {
+    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
+    baseURL: process.env.API_URL,
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    extractCSS: true,
+    cache: process.env.NODE_ENV !== 'production',
+    extractCSS: process.env.NODE_ENV === 'production' ? { ignoreOrder: true } : false,
+    optimizeCSS: process.env.NODE_ENV === 'production',
+    transpile: ['we-ui'],
   }
 }

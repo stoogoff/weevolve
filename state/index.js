@@ -8,7 +8,10 @@ class Collection {
 	}
 
 	setData(data = []) {
-		this.all = data.map(item => new Model(this.prefix, item))
+		this.all = data.map(item => ({
+			...item,
+			slug: (item._id || '').replace(`${this.prefix}:`, '')
+		}))
 	}
 
 	findBySlug(slug) {
@@ -21,20 +24,6 @@ class Collection {
 
 	sortByProperty(property) {
 		return this.all.sort(sortByProperty(property))
-	}
-}
-
-class Model {
-	constructor(prefix, data = {}) {
-		this.prefix = prefix
-
-		Object.keys(data).forEach(key => {
-			this[key] = data[key]
-		})
-	}
-
-	get slug() {
-		return (this._id || '').replace(`${this.prefix}:`, '')
 	}
 }
 
