@@ -2,7 +2,7 @@
 	<loading-spinner v-if="$fetchState.pending" />
 	<div v-else>
 		<header>
-			<h1 class="w-8/12" style="margin-left: 33%">{{ supplement.title }}</h1>
+			<h1 class="w-8/12">{{ supplement.title }}</h1>
 		</header>
 		<div class="flex flex-wrap">
 			<aside class="lg:block lg:w-4/12 lg:pr-6 pb-6">
