@@ -49,7 +49,7 @@ export default ({ $axios }) => {
 		},
 
 		async fetch() {
-			if(state.fetched) {
+			if(state.fetched && !process.server) {
 				return
 			}
 
