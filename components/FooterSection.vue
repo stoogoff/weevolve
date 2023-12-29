@@ -100,7 +100,6 @@ export default Vue.component('FooterSection', {
 	data() {
 		return {
 			elsewhere: [
-				{ icon: 'twitter', href: 'https://twitter.com/stoogoff', colour: 'text-blue-400' },
 				{ icon: 'facebook', href: 'https://www.facebook.com/weevolvegames/', colour: 'text-blue-600' },
 				{ icon: 'itch', href: 'https://we-evolve.itch.io/', colour: 'text-red-400' },
 				{ title: 'DriveThruRPG', href: 'https://www.drivethrurpg.com/browse/pub/14996/we-evolve', img: '/img/drivethrurpg.png' },
