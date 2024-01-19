@@ -39,6 +39,7 @@
 <script>
 export default {
 	layout: 'home',
+	scrollToTop: true,
 
 	data() {
 		return {

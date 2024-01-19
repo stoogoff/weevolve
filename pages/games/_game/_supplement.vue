@@ -13,7 +13,7 @@
 					:key="`link_${idx}`"
 					class="w-full mt-4 lg:mt-0"
 				>
-					Available on {{ link.title }}
+					{{ link.title }}
 				</link-action>
 				<link-action
 					:to="`/games/${game.slug}`"
@@ -35,6 +35,7 @@ import tail from 'lodash/tail'
 import head from 'lodash/head'
 
 export default {
+	scrollToTop: true,
 	props: {
 		game: {
 			type: Object,

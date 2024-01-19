@@ -12,6 +12,7 @@ import tail from 'lodash/tail'
 
 export default {
 	layout: 'home',
+	scrollToTop: true,
 
 	async fetch() {
 		const { params } = this.$nuxt.context

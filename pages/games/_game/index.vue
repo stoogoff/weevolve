@@ -48,6 +48,7 @@ import tail from 'lodash/tail'
 import head from 'lodash/head'
 
 export default {
+	scrollToTop: true,
 	props: {
 		game: {
 			type: Object,

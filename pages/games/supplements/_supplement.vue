@@ -2,7 +2,7 @@
 	<loading-spinner v-if="$fetchState.pending" />
 	<div v-else>
 		<header>
-			<h1 class="w-8/12">{{ supplement.title }}</h1>
+			<h1>{{ supplement.title }}</h1>
 		</header>
 		<div class="flex flex-wrap">
 			<aside class="lg:block lg:w-4/12 lg:pr-6 pb-6">
@@ -30,6 +30,7 @@ import head from 'lodash/head'
 
 export default {
 	layout: 'default',
+	scrollToTop: true,
 
 	async fetch() {
 		const { params } = this.$nuxt.context

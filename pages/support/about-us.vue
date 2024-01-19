@@ -6,6 +6,7 @@ import { title } from '~/utils/meta'
 
 export default {
 	layout: 'default',
+	scrollToTop: true,
 
 	head() {
 		return {

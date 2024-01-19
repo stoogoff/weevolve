@@ -4,6 +4,7 @@
 <script>
 export default {
 	layout: 'default',
+	scrollToTop: true,
 
 	computed: {
 		content() {

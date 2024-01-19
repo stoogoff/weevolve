@@ -39,6 +39,7 @@ import { title, meta, url } from '~/utils/meta'
 
 export default {
 	layout: 'default',
+	scrollToTop: true,
 
 	async fetch() {
 		await this.$state.fetch()
