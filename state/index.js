@@ -31,6 +31,7 @@ const state = Vue.observable({
 	games: new Collection('game'),
 	supplements: new Collection('supplement'),
 	appearances: new Collection('appearance'),
+	reviews: new Collection('reviews'),
 	fetched: false,
 })
 
@@ -48,6 +49,10 @@ export default ({ $axios }) => {
 			return state.appearances
 		},
 
+		reviews() {
+			return state.reviews
+		},
+
 		async fetch() {
 			if(state.fetched && !process.server) {
 				return
@@ -56,6 +61,7 @@ export default ({ $axios }) => {
 			state.games.setData(await $axios.$get('/api/games'))
 			state.supplements.setData(await $axios.$get('/api/supplements'))
 			state.appearances.setData(await $axios.$get('/api/appearances'))
+			state.reviews.setData(await $axios.$get('/api/reviews'))
 			state.fetched = true
 		},
 	}

@@ -14,6 +14,7 @@
 				</link-action>
 			</aside>
 			<article class="w-full lg:w-2/3 mb-6 lg:mb-0">
+				<review v-if="reviews.length > 0" class="mb-4" :review="review" />
 				<div class="content mb-8" v-html="$options.filters.markdown(game.content)" />
 				<image-gallery class="lg:grid gap-x-2" :images="galleryImages" />
 				<section v-if="supplements.length" class="pt-10">
@@ -46,6 +47,7 @@
 import { meta, title, url } from '~/utils/meta'
 import tail from 'lodash/tail'
 import head from 'lodash/head'
+import shuffle from 'lodash/shuffle'
 
 export default {
 	scrollToTop: true,
@@ -57,10 +59,18 @@ export default {
 		supplements: {
 			type: Array,
 			default: [],
-		}
+		},
+		reviews: {
+			type: Array,
+			default: [],
+		},
 	},
 
 	computed: {
+		review() {
+			return shuffle(this.reviews)[0]
+		},
+
 		coverImage() {
 			return head(this.game.images)
 		},

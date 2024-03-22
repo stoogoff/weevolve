@@ -2,7 +2,7 @@
 	<loading-spinner v-if="$fetchState.pending" />
 	<div v-else>
 		<cdn-image :source="`/img/${game.banner}`" :alt="game.title" class="block object-cover w-full" />
-		<nuxt-child :game="game" :supplements="supplements" />
+		<nuxt-child :game="game" :supplements="supplements" :reviews="reviews" />
 	</div>
 </template>
 <script>
@@ -23,6 +23,7 @@ export default {
 			this.game = this.$state.games().findBySlug(params.game)
 			this.supplements = this.$state.supplements().filterByProperty('for', this.game.title)
 				.sort(sortByProperty('sort'))
+			this.reviews = this.$state.reviews().filterByProperty('for', this.game.title)
 		}
 		catch(error) {
 			this.game = await this.$content('404').fetch()
@@ -33,6 +34,7 @@ export default {
 		return {
 			game: null,
 			supplements: [],
+			reviews: [],
 		}
 	},
 
