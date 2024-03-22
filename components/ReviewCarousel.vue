@@ -1,7 +1,7 @@
 <template>
 	<div class="carousel w-full" ref="container">
 		<review
-			v-for="review in reviews"
+			v-for="review in shuffledReviews"
 			:key="review._id"
 			:review="review"
 			class="carousel-item w-full"
@@ -11,6 +11,7 @@
 <script>
 
 import Vue from 'vue'
+import shuffle from 'lodash/shuffle'
 
 export default Vue.component('ReviewCarousel', {
 	props: {
@@ -36,9 +37,7 @@ export default Vue.component('ReviewCarousel', {
 				inline: 'nearest',
 			}
 
-			++this.index
-
-			if(this.index >= node.children.length) {
+			if(++this.index >= node.children.length) {
 				this.index = 0
 				scrolling.behavior = 'instant'
 			}
@@ -50,6 +49,12 @@ export default Vue.component('ReviewCarousel', {
 	onBeforeDestroy() {
 		if(this.timer) {
 			window.clearInterval(this.timer)
+		}
+	},
+
+	computed: {
+		shuffledReviews() {
+			return shuffle(this.reviews)
 		}
 	}
 })
