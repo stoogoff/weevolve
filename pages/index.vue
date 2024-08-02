@@ -22,6 +22,16 @@
 			</div>
 		</div>
 
+		<div class="banner content">
+			<h2>Tabletop Scotland</h2>
+			<p>we evolve will be at <a href="https://tabletopscotland.co.uk/">Tabletop Scotland</a> in <time datetime="2024-09-06" class="border-b border-dotted border-slate-500 cursor-default" title="06/09/2024 to 08/09/2024">September</time> sharing a stall with <a href="https://www.etsy.com/uk/shop/MiseryMakesShop">Misery Makes</a>. Find us on stand <strong>H3-16</strong> and say hello!</p>
+		</div>
+
+		<div class="banner content">
+			<h2>The Isle of Pelops</h2>
+			<p><strong>COMING SOON!</strong> A new setting guide for the <strong class="uppercase">Aegean</strong> role-playing game. The Isle of Pelops will describe the mythology and history of the Peloponnese as well as provide details of important people and locations, including the citadel of Mykenai and Sparta. New options are provided for players and GMs alike, including new backgrounds, Mystery Cults, adversaries, and more!</p>
+		</div>
+
 		<review-carousel class="mb-4" :reviews="reviews"/>
 
 		<p class="mt-4">Checkout the games section for other games published by we evolve.</p>
@@ -52,3 +62,16 @@ export default {
 	},
 }
 </script>
+<style scoped>
+
+.banner {
+	@apply my-8 p-4 bg-stone-200 rounded-md;
+}
+.banner h2 {
+	@apply text-left normal-case mb-2 mt-0;
+}
+.banner *:last-child {
+	@apply mb-0;
+}
+
+</style>
