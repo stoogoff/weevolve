@@ -89,7 +89,7 @@ export default Vue.component('FooterSection', {
 	async fetch() {
 		await this.$state.fetch()
 
-		const games = this.$state.games().sortByProperty('sort')
+		const games = this.$state.games().sortByProperty('title')
 
 		this.games = games.map(game => ({
 			title: game.title,

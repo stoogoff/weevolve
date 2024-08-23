@@ -23,7 +23,7 @@ class Collection {
 	}
 
 	sortByProperty(property) {
-		return this.all.sort(sortByProperty(property))
+		return [ ...this.all ].sort(sortByProperty(property))
 	}
 }
 
