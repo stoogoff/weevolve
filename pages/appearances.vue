@@ -6,7 +6,7 @@
 			v-else
 			v-for="appearance in appearances"
 			:key="appearance.path"
-			class="mb-6 md:flex pb-6 border-b border-gray-200 last:border-b-0"
+			class="mb-6 md:flex pb-6 border-b border-gray-300 last:border-b-0"
 		>
 			<div class="md:w-9/12">
 				<h3 class="text-xl font-bold text-left">{{ appearance.title }}</h3>

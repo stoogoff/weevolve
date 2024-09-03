@@ -3,7 +3,7 @@
 		<cdn-image class="w-full" :source="`/img/${game.images[0]}`" :alt="game.title" />
 		<div class="px-4 py-2 flex-grow">
 			<header>
-				<h1 class="text-xl font-gray-700 font-bold">{{ game.title }}</h1>
+				<h1 class="text-xl text-gray-700 font-bold">{{ game.title }}</h1>
 			</header>
 			<p class="text-sm tracking-normal" v-html="$options.filters.markdownNoPara(game.summary)" />
 		</div>

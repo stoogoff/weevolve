@@ -25,7 +25,7 @@
 						class="mb-6 md:flex"
 					>
 						<div class="md:w-3/12 md:pr-6">
-							<cdn-image :source="`/img/${supplement.images[0]}`" :alt="supplement.title" />
+							<cdn-image :source="`/img/${supplement.images[0]}`" :alt="supplement.title" class="border border-gray-300" />
 						</div>
 						<div class="md:w-9/12">
 							<h3 class="text-xl font-bold">{{ supplement.title }}</h3>
