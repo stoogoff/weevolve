@@ -12,6 +12,7 @@
 					v-for="(link, idx) in supplement.links"
 					:key="`link_${idx}`"
 					class="w-full mt-4 lg:mt-0"
+					type="primary"
 				>
 					{{ link.title }}
 				</link-action>

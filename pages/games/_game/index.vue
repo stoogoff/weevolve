@@ -9,6 +9,7 @@
 					:key="`link_${idx}`"
 					class="mt-4 mb-4 lg:mt-0"
 					block
+					type="primary"
 				>
 					{{ link.title }}
 				</link-action>
