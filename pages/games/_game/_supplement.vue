@@ -16,6 +16,7 @@
 				>
 					{{ link.title }}
 				</link-action>
+				<product-format v-if="supplement.format" :format="supplement.format" />
 				<link-action
 					:to="`/games/${game.slug}`"
 					class="w-full mt-4 lg:mt-0"

@@ -14,6 +14,7 @@
 					{{ link.title }}
 				</link-action>
 				<div v-if="game.links.length === 0" class="p-4 uppercase text-center border-2 border-yellow-500 bg-yellow-200 text-yellow-700">Available soon!</div>
+				<product-format v-if="game.format" :format="game.format" />
 			</aside>
 			<article class="w-full lg:w-2/3 mb-6 lg:mb-0">
 				<review v-if="reviews.length > 0" class="mb-4" :review="review" />

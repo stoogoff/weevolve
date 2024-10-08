@@ -16,6 +16,7 @@
 				>
 					Available on {{ link.title }}
 				</link-action>
+				<product-format v-if="supplement.format" :format="supplement.format" />
 			</aside>
 			<article class="w-full lg:w-8/12 mb-6 lg:mb-0">
 				<div class="content mb-8" v-html="$options.filters.markdown(supplement.content)" />
