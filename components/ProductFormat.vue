@@ -14,7 +14,8 @@ const VALUE_MAP = {
 	'A4': '(210 x 297mm)',
 	'A5': '(148 x 210mm)',
 	'US Royal': '(152 x 229mm)',
-	'US Letter': '(215.9 x 279.4mm)'
+	'US Letter': '(215.9 x 279.4mm)',
+	'Tabloid': '(289 x 380mm)',
 }
 
 export default Vue.component('ProductFormat', {
