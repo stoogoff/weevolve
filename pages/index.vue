@@ -23,6 +23,11 @@
 		</div>
 
 		<div class="banner content">
+			<h2>The Isle of Pelops</h2>
+			<p><a href="https://www.kickstarter.com/projects/stoo-goff/aegean-the-isle-of-pelops">The Kickstarter</a> for the new supplement to <strong class="uppercase">Aegean</strong> is now running through to the <time datetime="2024-11-30" class="border-b border-dotted border-slate-500 cursor-default" title="01/11/2024 to 30/11/2024">end of November</time>! Rewards include digital, POD, as well as print options while add ons include the existing books, dice and the Terror at Aspis adventure. Click to <a href="https://www.kickstarter.com/projects/stoo-goff/aegean-the-isle-of-pelops">find out more!</a></p>
+		</div>
+
+		<div class="banner content">
 			<h2>Tabletop Scotland</h2>
 			<p>we evolve will be at <a href="https://tabletopscotland.co.uk/">Tabletop Scotland</a> in <time datetime="2024-09-06" class="border-b border-dotted border-slate-500 cursor-default" title="06/09/2024 to 08/09/2024">September</time> sharing a stall with <a href="https://www.etsy.com/uk/shop/MiseryMakesShop">Misery Makes</a>. Find us on stand <strong>H3-16</strong> and say hello!</p>
 		</div>
