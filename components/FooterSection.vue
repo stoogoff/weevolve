@@ -103,6 +103,7 @@ export default Vue.component('FooterSection', {
 				{ icon: 'facebook', href: 'https://www.facebook.com/weevolvegames/', colour: 'text-blue-600' },
 				{ icon: 'itch', href: 'https://we-evolve.itch.io/', colour: 'text-red-400' },
 				{ title: 'DriveThruRPG', href: 'https://www.drivethrurpg.com/browse/pub/14996/we-evolve', img: '/img/drivethrurpg.png' },
+				{ title: 'Compose Dream Games', href: 'https://composedreamgames.com/marketplace/we-evolve', img: '/img/cdg.gif' },
 			],
 			useful: [
 				{ title: 'About Us', href: '/support/about-us' },
