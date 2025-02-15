@@ -8,7 +8,7 @@ const {
 
 const app = express()
 
-const ALLOWED_PREFIXES = ['games', 'supplements', 'appearances', 'reviews']
+const ALLOWED_PREFIXES = ['games', 'supplements', 'appearances', 'reviews', 'site']
 
 // ----------
 // MIDDLEWARE

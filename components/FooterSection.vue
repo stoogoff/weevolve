@@ -8,7 +8,7 @@
 							<a
 								v-if="item.icon"
 								class="bg-white shadow-lg rounded-full outline-none focus:outline-none mr-2 p-3 inline-block hover:bg-gray-800 hover:text-white transition-all duration-500"
-								:class="item.colour"
+								:class="item.cssClass"
 								:href="item.href"
 								target="_blank"
 							>
@@ -20,7 +20,7 @@
 									:href="item.href"
 									target="_blank"
 								>
-									<cdn-image :source="item.img" :alt="item.title" class="max-w-xs mt-2" />
+									<cdn-image :source="item.img" :alt="item.title" class="max-w-xs mt-2" :class="item.cssClass" />
 								</a>
 							</div>
 						</span>
@@ -95,23 +95,17 @@ export default Vue.component('FooterSection', {
 			title: game.title,
 			href: game.path
 		}))
+
+		const { elsewhere, useful } = this.$state.site().findBySlug('footer')
+
+		this.elsewhere = elsewhere
+		this.useful = useful
 	},
 
 	data() {
 		return {
-			elsewhere: [
-				{ icon: 'facebook', href: 'https://www.facebook.com/weevolvegames/', colour: 'text-blue-600' },
-				{ icon: 'itch', href: 'https://we-evolve.itch.io/', colour: 'text-red-400' },
-				{ title: 'DriveThruRPG', href: 'https://www.drivethrurpg.com/browse/pub/14996/we-evolve', img: '/img/drivethrurpg.png' },
-				{ title: 'Compose Dream Games', href: 'https://composedreamgames.com/marketplace/we-evolve', img: '/img/cdg.gif' },
-			],
-			useful: [
-				{ title: 'About Us', href: '/support/about-us' },
-				{ title: 'Appearances', href: '/appearances' },
-				{ title: 'aegeanrpg.com', href: 'https://www.aegeanrpg.com/', external: true },
-				{ title: 'wildrpg.com', href: 'https://www.wildrpg.com/', external: true },
-
-			],
+			elsewhere: [],
+			useful: [],
 			games: null,
 		}
 	},

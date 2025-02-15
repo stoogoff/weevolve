@@ -5,4 +5,9 @@ module.exports = {
 			borderWidth: ['last'],
 		},
 	},
+	safelist: [
+		'text-blue-600',
+		'text-red-400',
+		'bg-white',
+	],
 }
