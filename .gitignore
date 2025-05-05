@@ -93,3 +93,9 @@ sw.*
 
 # Sublime
 *.sublime-workspace
+
+infra/state
+src/static
+*.tfvars
+*.hcl
+.terraform

@@ -1,0 +1,21 @@
+
+{{> header.hbs }}
+
+<section class="section">
+	<div class="container">
+		<div class="columns">
+			<div class="column is-one-third">
+				<figure class="image"><img src="/media/img/{{ cover }}" alt="{{ title }}" /></figure>
+				{{#each images}}
+					<figure class="image"><img src="/media/img/{{ source }}" alt="{{ text }}" /></figure>
+				{{/each}}
+			</div>
+			<div class="column">
+				<h1 class="title">{{ title }}</h1>
+				<div class="content">{{{ contents }}}</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{{> footer.hbs }}

@@ -5,12 +5,12 @@ RUN apk --no-cache add git
 
 WORKDIR /app
 
-COPY ./package.json .
-COPY ./yarn.lock .
+COPY ./src/package.json .
+COPY ./src/yarn.lock .
 
 RUN yarn install
 
-COPY . .
+COPY ./src .
 
 ARG db_url=https://db.stoogoff.com/weevolve
 ARG db_user

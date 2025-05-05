@@ -1,0 +1,93 @@
+
+// ------------------------------------
+// Responsive screen variables
+// ------------------------------------
+$mobile: 768px
+$tablet: 769px
+$desktop: 1024px
+$widescreen: 1216px
+$fullhd: 1408px
+
+
+// ------------------------------------
+// Colour variables
+// ------------------------------------
+$colourLine: rgb(211,211,211)
+
+
+
+body
+	font-family: 'Lato', sans-serif
+
+h1, h2, h3, .navbar-item
+	font-family: 'Lora', serif
+
+
+// ------------------------------------
+// Base styles
+// ------------------------------------
+ul.is-inline-list
+	list-style-type: none
+
+	li
+		display: inline-block
+		padding: 0.2rem 0.5rem
+		text-align: center
+		border-right: 1px solid $colourLine
+
+		&:last-child
+			border-right: 0
+
+
+// ------------------------------------
+// Bumal overrides
+// ------------------------------------
+.container
+	max-width: 43rem
+
+.footer .image
+	max-width: 300px
+	margin: 2rem auto
+
+.content img
+	float: left
+	margin: 0.5rem 1rem 0.5rem 0
+
+
+// ------------------------------------
+// Navbar for small screens
+// ------------------------------------
+@media screen and (max-width: $desktop)
+	div.navbar-end
+		border-top: 1px solid $colourLine
+
+
+// ------------------------------------
+// Hero banner for the home page and game pages
+// ------------------------------------
+.hero
+	background-position: center center
+	background-size: cover
+	background-repeat: no-repeat
+	position: relative
+
+	img
+		position: absolute
+		top: 0
+		right: 0
+
+
+// ------------------------------------
+// Shop
+// ------------------------------------
+.shop
+	display: flex
+	flex-flow: row wrap
+
+.shop-item
+	max-width: 30%
+	margin-right: 1rem
+
+	.title, .button
+		margin: 1rem 0
+
