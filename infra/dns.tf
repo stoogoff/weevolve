@@ -35,3 +35,11 @@ resource "bunnynet_dns_record" "mx" {
 	value    = "${bunnynet_dns_record.mail.name}.${data.bunnynet_dns_zone.dns.domain}"
 	priority = 10
 }
+
+resource "bunnynet_dns_record" "db" {
+	zone = data.bunnynet_dns_zone.dns.id
+
+	name  = "db"
+	type  = "CNAME"
+	value = "${bunnynet_pullzone.db.name}.${bunnynet_pullzone.db.cdn_domain}"
+}
