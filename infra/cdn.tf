@@ -27,7 +27,7 @@ resource "bunnynet_pullzone_hostname" "bunnynet_cdn" {
 	tls_enabled = true
 	force_ssl   = true
 }
-/*
+
 resource "bunnynet_pullzone_hostname" "cdn" {
 	pullzone    = bunnynet_pullzone.cdn.id
 	name        = "cdn.${data.bunnynet_dns_zone.dns.domain}"
@@ -62,4 +62,3 @@ resource "bunnynet_pullzone_edgerule" "redirect_pullzone_domain" {
 		}
 	]
 }
-*/

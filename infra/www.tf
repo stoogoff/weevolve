@@ -22,10 +22,10 @@ resource "bunnynet_pullzone_hostname" "bunnynet_web" {
   tls_enabled = true
   force_ssl   = true
 }
-/*
+
 resource "bunnynet_pullzone_hostname" "www" {
   pullzone    = bunnynet_pullzone.www.id
-  name        = "www.${data.bunnynet_dns_zone.dns.domain}"
+  name        = data.bunnynet_dns_zone.dns.domain
   tls_enabled = true
   force_ssl   = true
 }
@@ -50,7 +50,6 @@ resource "bunnynet_pullzone_edgerule" "redirect_bare_domain" {
       type       = "Url"
       match_type = "MatchAny"
       patterns   = [
-        "https://${data.bunnynet_dns_zone.dns.domain}/*",
         "https://${bunnynet_pullzone_hostname.bunnynet_web.name}/*"
       ]
       parameter1 = null
@@ -58,4 +57,3 @@ resource "bunnynet_pullzone_edgerule" "redirect_bare_domain" {
     }
   ]
 }
-*/
