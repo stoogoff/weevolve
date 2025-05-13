@@ -12,7 +12,7 @@ RUN yarn install
 
 COPY ./src .
 
-ARG db_url=https://db.stoogoff.com/weevolve
+ARG db_url=https://db.we-evolve.co.uk/weevolve
 ARG db_user
 ARG db_password
 ARG api_url=https://we-evolve.co.uk

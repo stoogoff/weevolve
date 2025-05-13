@@ -5,8 +5,8 @@ resource "bunnynet_pullzone" "www" {
   add_canonical_header = true
 
   origin {
-    type               = "OriginUrl"
-    url                = "http://${var.web_server}"
+    type                = "OriginUrl"
+    url                 = "http://${var.web_server}"
     forward_host_header = true
   }
 
@@ -49,7 +49,7 @@ resource "bunnynet_pullzone_edgerule" "redirect_bare_domain" {
     {
       type       = "Url"
       match_type = "MatchAny"
-      patterns   = [
+      patterns = [
         "https://${bunnynet_pullzone_hostname.bunnynet_web.name}/*"
       ]
       parameter1 = null

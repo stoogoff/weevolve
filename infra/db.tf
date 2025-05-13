@@ -1,13 +1,17 @@
 
 resource "bunnynet_pullzone" "db" {
-  name                 = "${var.service_name}-db"
-  cors_enabled         = false
-  add_canonical_header = true
+  name                          = "${var.service_name}-db"
+  cors_enabled                  = false
+  add_canonical_header          = true
+  cache_expiration_time         = 0
+  cache_expiration_time_browser = 0
+  strip_cookies                 = false
 
   origin {
-    type               = "OriginUrl"
-    url                = "http://${var.web_server}"
+    type                = "OriginUrl"
+    url                 = "http://${var.web_server}"
     forward_host_header = true
+    follow_redirects    = true
   }
 
   routing {
@@ -49,7 +53,7 @@ resource "bunnynet_pullzone_edgerule" "redirect_db_domain" {
     {
       type       = "Url"
       match_type = "MatchAny"
-      patterns   = [
+      patterns = [
         "https://${bunnynet_pullzone_hostname.bunnynet_db.name}/*"
       ]
       parameter1 = null
