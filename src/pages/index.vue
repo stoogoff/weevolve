@@ -23,6 +23,11 @@
 		</div>
 
 		<div class="banner content">
+			<h2>we evolve Partners with GMS</h2>
+			<p>we evolve has partnered with <a href="https://gmstabletopgames.com/">GMS Hobby Games Logistics</a> to make the <strong class="uppercase">Aegean</strong> RPG available in more shops throughout the UK. If you're a retailer looking to stock Aegean or just trying to find print copies of the books, check them out!</p>
+		</div>
+
+		<div class="banner content">
 			<h2>The Isle of Pelops</h2>
 			<p><a href="https://www.kickstarter.com/projects/stoo-goff/aegean-the-isle-of-pelops">The Kickstarter</a> for the new supplement to <strong class="uppercase">Aegean</strong> is now running through to the <time datetime="2024-11-30" class="border-b border-dotted border-slate-500 cursor-default" title="01/11/2024 to 30/11/2024">end of November</time>! Rewards include digital, POD, as well as print options while add ons include the existing books, dice and the Terror at Aspis adventure. Click to <a href="https://www.kickstarter.com/projects/stoo-goff/aegean-the-isle-of-pelops">find out more!</a></p>
 		</div>
@@ -63,6 +68,7 @@ export default {
 				},
 			],
 			reviews: [],
+			banners: [],
 		}
 	},
 }
