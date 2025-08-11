@@ -42,7 +42,7 @@ jobs:
     needs: build
 
     steps:
-    - name: Pull and redeploy docker container
+    - name: Pull and deploy docker container
       id: deploy-image
       uses: appleboy/ssh-action@v1.2.2
       env:
@@ -52,6 +52,7 @@ jobs:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.PRIVATE_KEY }}
         username: ${{ secrets.HOST_LOGIN }}
+        debug: true
         script: |
           docker pull $CONTAINER_REPOSITORY:latest
           docker stop $CONTAINER_NAME
