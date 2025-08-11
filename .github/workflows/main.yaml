@@ -45,16 +45,13 @@ jobs:
         mkdir ~/.ssh
         echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -p 22 ${{ secrets.HOST }} >> ~/.ssh/known_hosts
 
     - name: Pull and Deploy Docker Container
       env:
         CONTAINER_NAME: ${{ github.event.repository.name }}
         CONTAINER_REPOSITORY: ${{ secrets.CONTAINER_REPOSITORY }}
       run: |
-        echo $CONTAINER_REPOSITORY
-        echo $CONTAINER_NAME
-        ssh ${{ secrets.HOST_LOGIN }}@${{ secrets.HOST }} << EOF
+        ssh -o StrictHostKeyChecking=no ${{ secrets.HOST_LOGIN }}@${{ secrets.HOST }} << EOF
           whoami
           docker pull $CONTAINER_REPOSITORY:latest
           docker stop $CONTAINER_NAME
