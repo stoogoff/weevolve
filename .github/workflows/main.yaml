@@ -52,6 +52,7 @@ jobs:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.PRIVATE_KEY }}
         username: ${{ secrets.HOST_LOGIN }}
+        port: 22
         script: |
           whoami
           docker pull $CONTAINER_REPOSITORY:latest
