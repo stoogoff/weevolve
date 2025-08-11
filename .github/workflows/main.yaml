@@ -45,16 +45,16 @@ jobs:
     - name: Pull and redeploy docker container
       id: deploy-image
       uses: appleboy/ssh-action@v1.2.2
+      env:
+        CONTAINER_NAME: ${{ github.event.repository.name }}
+        CONTAINER_REPOSITORY: ${{ secrets.CONTAINER_REPOSITORY }}
       with:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.PRIVATE_KEY }}
         username: ${{ secrets.HOST_LOGIN }}
-      env:
-        CONTAINER_NAME: ${{ github.event.repository.name }}
-        CONTAINER_REPOSITORY: ${{ secrets.CONTAINER_REPOSITORY }}
-      script: |
-        docker pull $CONTAINER_REPOSITORY:latest
-        docker stop $CONTAINER_NAME
-        docker rm $CONTAINER_NAME
-        docker run --name $CONTAINER_NAME -p 3002:3000 --restart unless-stopped -d $CONTAINER_REPOSITORY:latest
-        docker ps
+        script: |
+          docker pull $CONTAINER_REPOSITORY:latest
+          docker stop $CONTAINER_NAME
+          docker rm $CONTAINER_NAME
+          docker run --name $CONTAINER_NAME -p 3002:3000 --restart unless-stopped -d $CONTAINER_REPOSITORY:latest
+          docker ps
