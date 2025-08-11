@@ -52,8 +52,8 @@ jobs:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.PRIVATE_KEY }}
         username: ${{ secrets.HOST_LOGIN }}
-        debug: true
         script: |
+          whoami
           docker pull $CONTAINER_REPOSITORY:latest
           docker stop $CONTAINER_NAME
           docker rm $CONTAINER_NAME
