@@ -51,7 +51,7 @@ jobs:
         CONTAINER_NAME: ${{ github.event.repository.name }}
         CONTAINER_REPOSITORY: ${{ secrets.CONTAINER_REPOSITORY }}
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.HOST_LOGIN }}@${{ secrets.HOST }} /usr/bin/bash << EOF
+        ssh -o StrictHostKeyChecking=no ${{ secrets.HOST_LOGIN }}@${{ secrets.HOST }} -tt -vvv << EOF
           whoami
           docker pull $CONTAINER_REPOSITORY:latest
           docker stop $CONTAINER_NAME
