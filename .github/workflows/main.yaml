@@ -44,7 +44,7 @@ jobs:
     steps:
     - name: Pull and deploy docker container
       id: deploy-image
-      uses: appleboy/ssh-action@v1.2.2
+      uses: appleboy/ssh-action@master
       env:
         CONTAINER_NAME: ${{ github.event.repository.name }}
         CONTAINER_REPOSITORY: ${{ secrets.CONTAINER_REPOSITORY }}
