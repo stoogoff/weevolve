@@ -40,18 +40,20 @@ jobs:
     needs: build
 
     steps:
-    - name: Prepare SSH Key
-      run: |
-        mkdir ~/.ssh
-        echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
+    - name: Setup SSH Key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.PRIVATE_KEY }}
+        
+    - name: Add known_hosts
+      run: echo "${{ secrets.HOST }}" >> ~/.ssh/known_hosts
 
     - name: Pull and Deploy Docker Container
       env:
         CONTAINER_NAME: ${{ github.event.repository.name }}
         CONTAINER_REPOSITORY: ${{ secrets.CONTAINER_REPOSITORY }}
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.HOST_LOGIN }}@${{ secrets.HOST }} -tt -vvv << EOF
+        ssh ${{ secrets.HOST_LOGIN }}@${{ secrets.HOST }} -tt -vvv << EOF
           whoami
           docker pull $CONTAINER_REPOSITORY:latest
           docker stop $CONTAINER_NAME
