@@ -46,16 +46,15 @@ jobs:
       env:
         CONTAINER_NAME: ${{ github.event.repository.name }}
         CONTAINER_REPOSITORY: ${{ secrets.CONTAINER_REPOSITORY }}
-        IMAGE_TAG: ${{ github.sha }}
       with:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.PRIVATE_KEY }}
         username: ${{ secrets.HOST_LOGIN }}
         script: |
-          docker pull $CONTAINER_REPOSITORY:$IMAGE_TAG
+          docker pull $CONTAINER_REPOSITORY:${{ github.sha }}
           docker stop $CONTAINER_NAME
           docker rm $CONTAINER_NAME
           docker run --name $CONTAINER_NAME \
             -p 3002:3000 \
             --restart unless-stopped \
-            -d $CONTAINER_REPOSITORY:$IMAGE_TAG
+            -d $CONTAINER_REPOSITORY:${{ github.sha }}
