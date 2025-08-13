@@ -30,11 +30,11 @@ jobs:
           --build-arg db_user=${{ secrets.DB_USER }} \
           --build-arg db_password=${{ secrets.DB_PASSWORD }} \
           .
-        docker tag $CONTAINER_NAME:$IMAGE_TAG $CONTAINER_REPOSITORY:$IMAGE_TAG
-        docker push $CONTAINER_REPOSITORY:$IMAGE_TAG
-        #docker rmi $CONTAINER_REPOSITORY:latest
         docker tag $CONTAINER_NAME:latest $CONTAINER_REPOSITORY:latest
+        docker tag $CONTAINER_NAME:latest $CONTAINER_REPOSITORY:$IMAGE_TAG
+        docker rmi $CONTAINER_REPOSITORY:latest
         docker push $CONTAINER_REPOSITORY:latest
+        docker push $CONTAINER_REPOSITORY:$IMAGE_TAG
 
   deploy:
     runs-on: ubuntu-latest
