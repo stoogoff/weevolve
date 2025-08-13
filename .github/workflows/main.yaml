@@ -30,7 +30,6 @@ jobs:
           --build-arg db_user=${{ secrets.DB_USER }} \
           --build-arg db_password=${{ secrets.DB_PASSWORD }} \
           .
-        #docker rmi $CONTAINER_REPOSITORY:latest
         docker tag $CONTAINER_NAME:latest $CONTAINER_REPOSITORY:latest
         docker tag $CONTAINER_NAME:latest $CONTAINER_REPOSITORY:$IMAGE_TAG
         docker push $CONTAINER_REPOSITORY:latest
@@ -56,4 +55,7 @@ jobs:
           docker pull $CONTAINER_REPOSITORY:$IMAGE_TAG
           docker stop $CONTAINER_NAME
           docker rm $CONTAINER_NAME
-          docker run --name $CONTAINER_NAME -p 3002:3000 --restart unless-stopped -d $CONTAINER_REPOSITORY:$IMAGE_TAG
+          docker run --name $CONTAINER_NAME \
+            -p 3002:3000 \
+            --restart unless-stopped \
+            -d $CONTAINER_REPOSITORY:$IMAGE_TAG
