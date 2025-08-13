@@ -51,10 +51,10 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         username: ${{ secrets.HOST_LOGIN }}
         script: |
-          docker pull $CONTAINER_REPOSITORY:${{ github.sha }}
+          docker pull $CONTAINER_REPOSITORY:latest
           docker stop $CONTAINER_NAME
           docker rm $CONTAINER_NAME
           docker run --name $CONTAINER_NAME \
             -p 3002:3000 \
             --restart unless-stopped \
-            -d $CONTAINER_REPOSITORY:${{ github.sha }}
+            -d $CONTAINER_REPOSITORY:latest
