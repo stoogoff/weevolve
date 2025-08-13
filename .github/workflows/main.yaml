@@ -30,9 +30,9 @@ jobs:
           --build-arg db_user=${{ secrets.DB_USER }} \
           --build-arg db_password=${{ secrets.DB_PASSWORD }} \
           .
+        docker rmi $CONTAINER_REPOSITORY:latest
         docker tag $CONTAINER_NAME:latest $CONTAINER_REPOSITORY:latest
         docker tag $CONTAINER_NAME:latest $CONTAINER_REPOSITORY:$IMAGE_TAG
-        docker rmi $CONTAINER_REPOSITORY:latest
         docker push $CONTAINER_REPOSITORY:latest
         docker push $CONTAINER_REPOSITORY:$IMAGE_TAG
 
