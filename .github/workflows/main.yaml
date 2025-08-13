@@ -46,6 +46,7 @@ jobs:
       env:
         CONTAINER_NAME: ${{ github.event.repository.name }}
         CONTAINER_REPOSITORY: ${{ secrets.CONTAINER_REPOSITORY }}
+        IMAGE_TAG: ${{ github.sha }}
       with:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.PRIVATE_KEY }}
