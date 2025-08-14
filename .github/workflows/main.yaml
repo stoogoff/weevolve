@@ -47,12 +47,15 @@ jobs:
         CONTAINER_NAME: ${{ github.event.repository.name }}
         CONTAINER_REPOSITORY: ${{ secrets.CONTAINER_REPOSITORY }}
         IMAGE_TAG: ${{ github.sha }}
+        CONTAINER_LOGIN: ${{ secrets.CONTAINER_LOGIN }}
+        API_KEY: ${{ secrets.API_KEY }}
       with:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.PRIVATE_KEY }}
         username: ${{ secrets.HOST_LOGIN }}
-        envs: CONTAINER_NAME,CONTAINER_REPOSITORY,IMAGE_TAG
+        envs: CONTAINER_NAME,CONTAINER_REPOSITORY,IMAGE_TAG,CONTAINER_LOGIN,API_KEY
         script: |
+          docker login kcr.io --username $CONTAINER_LOGIN --password $API_KEY
           docker pull $CONTAINER_REPOSITORY:$IMAGE_TAG
           docker stop $CONTAINER_NAME
           docker rm $CONTAINER_NAME
