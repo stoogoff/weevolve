@@ -27,8 +27,7 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       run: |
         docker build -t $CONTAINER_NAME \
-          --build-arg db_user=${{ secrets.DB_USER }} \
-          --build-arg db_password=${{ secrets.DB_PASSWORD }} \
+          --build-arg db_auth=${{ secrets.DB_AUTH }} \
           .
         docker tag $CONTAINER_NAME:latest $CONTAINER_REPOSITORY:latest
         docker tag $CONTAINER_NAME:latest $CONTAINER_REPOSITORY:$IMAGE_TAG

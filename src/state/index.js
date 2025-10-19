@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { findByProperty, sortByProperty } from 'we-ui/utils/list'
+import { getAllDocsByType } from '~/utils/couch'
 
 class Collection {
 	constructor(prefix, data = []) {
@@ -63,11 +64,11 @@ export default ({ $axios }) => {
 				return
 			}
 
-			state.games.setData(await $axios.$get('/api/games'))
-			state.supplements.setData(await $axios.$get('/api/supplements'))
-			state.appearances.setData(await $axios.$get('/api/appearances'))
-			state.reviews.setData(await $axios.$get('/api/reviews'))
-			state.site.setData(await $axios.$get('/api/site'))
+			state.games.setData(await getAllDocsByType($axios, 'game'))
+			state.supplements.setData(await getAllDocsByType($axios, 'supplement'))
+			state.appearances.setData(await getAllDocsByType($axios, 'appearance'))
+			state.reviews.setData(await getAllDocsByType($axios, 'review'))
+			state.site.setData(await getAllDocsByType($axios, 'site'))
 			state.fetched = true
 		},
 	}

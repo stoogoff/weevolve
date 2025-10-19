@@ -18,7 +18,7 @@ h1 {
 }
 
 h2 {
-	@apply text-2xl uppercase text-gray-500 text-center;
+	@apply text-2xl;
 }
 
 h3 {

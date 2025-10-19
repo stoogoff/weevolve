@@ -34,7 +34,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/filters.js',
+    '~/plugins/filters',
     '~/plugins/state',
   ],
 
@@ -59,14 +59,15 @@ export default {
     '@nuxt/content',
   ],
 
-  serverMiddleware: [
-    '~/server/api/index.js',
-  ],
-
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: process.env.API_URL,
+    baseURL: process.env.DB_URL,
+    headers: {
+      common: {
+        Authorization: `Basic ${process.env.DB_AUTH}`,
+      },
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

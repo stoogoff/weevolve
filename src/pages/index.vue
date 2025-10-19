@@ -79,7 +79,7 @@ export default {
 	@apply my-8 p-4 bg-stone-200 rounded-md;
 }
 .banner h2 {
-	@apply text-left normal-case mb-2 mt-0;
+	@apply text-left normal-case mb-2 mt-0 uppercase text-gray-500;
 }
 .banner *:last-child {
 	@apply mb-0;

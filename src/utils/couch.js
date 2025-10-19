@@ -1,9 +1,5 @@
 
-const { db } = require('../db')
-const { sortByProperty } = require('we-ui/utils/list')
-
-const $axios = db(process.env.DB_URL)
-
+import { sortByProperty } from 'we-ui/utils/list'
 
 // -------
 // HELPERS
@@ -17,7 +13,7 @@ export const convertAllDocsToArray = (response, prefix) => response.data.rows.ma
 	path: `/${prefix}s/` + id(row.doc._id)
 }))
 
-export const getAllDocsByType = async (prefix, limit = false) => {
+export const getAllDocsByType = async ($axios, prefix, limit = false) => {
 	const params = {
 		startkey: `"${prefix}:"`,
 		endkey: `"${prefix}:\ufff0"`,
@@ -36,7 +32,7 @@ export const getAllDocsByType = async (prefix, limit = false) => {
 	return items
 }
 
-export const getDocByTypeId = async (prefix, id) => {
+export const getDocByTypeId = async ($axios, prefix, id) => {
 	const response = await $axios.get(`/${prefix}:${id}`)
 
 	return response.data
