@@ -11,12 +11,7 @@
 			<div class="md:w-9/12">
 				<h2 class="text-2xl font-bold text-left mb-2">{{ appearance.title }}</h2>
 				<h3 class="text-left italic text-gray-700 mb-2" v-if="appearance.subtitle">{{ appearance.subtitle }}</h3>
-				<aside class="uppercase text-xs flex text-gray-600 mb-4">
-					<icon-view icon="calendar" />
-					<p class="mb-0 mt-1 ml-2">
-						Published <time :datetime="appearance.date">{{ appearance.date | date }}</time>
-					</p>
-				</aside>
+				<published-date :published-on="appearance.date" />
 				<p class="content" v-html="$options.filters.markdownNoPara(appearance.description)" />
 				<div>
 					<a v-if="appearance.link" :href="appearance.link.url" class="link">{{ appearance.link.title }}</a>
