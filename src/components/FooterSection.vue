@@ -27,22 +27,8 @@
 					</div>
 				</div>
 				<div class="w-full lg:w-3/12 px-4">
-					<div class="px-4 ml-auto" v-if="games">
-						<h5 class="block uppercase text-sm font-semibold mb-2">Games</h5>
-						<ul>
-							<li
-								:key="`games_${idx}`"
-								v-for="(item, idx) in games"
-							>
-								<nuxt-link
-									class="text-gray-300 hover:text-gray-100 inline-block pb-2 text-sm"
-									:to="item.href"
-									>
-										{{ item.title }}
-								</nuxt-link>
-							</li>
-						</ul>
-					</div>
+					<footer-links title="Games" :items="games" v-if="games" />
+					<footer-links class="pt-4" title="Tools" :items="tools" v-if="tools" />
 				</div>
 				<div class="w-full lg:w-3/12 px-4">
 					<div class="px-4 ml-auto" v-if="useful">
@@ -96,6 +82,13 @@ export default Vue.component('FooterSection', {
 			href: game.path
 		}))
 
+		const tools = this.$state.tools().sortByProperty('title')
+
+		this.tools = tools.map(tool => ({
+			title: tool.title,
+			href: tool.link.url,
+		}))
+
 		const { elsewhere, useful } = this.$state.site().findBySlug('footer')
 
 		this.elsewhere = elsewhere
@@ -107,6 +100,7 @@ export default Vue.component('FooterSection', {
 			elsewhere: [],
 			useful: [],
 			games: null,
+			tools: null,
 		}
 	},
 })

@@ -29,12 +29,13 @@ class Collection {
 }
 
 const state = Vue.observable({
-	games: new Collection('game'),
-	supplements: new Collection('supplement'),
 	appearances: new Collection('appearance'),
+	blog: new Collection('blog'),
+	games: new Collection('game'),
 	reviews: new Collection('reviews'),
 	site: new Collection('site'),
-	blog: new Collection('blog'),
+	supplements: new Collection('supplement'),
+	tools: new Collection('tool'),
 	fetched: false,
 })
 
@@ -64,6 +65,10 @@ export default ({ $axios }) => {
 			return state.blog
 		},
 
+		tools() {
+			return state.tools
+		},
+
 		async fetch() {
 			if(state.fetched && !process.server) {
 				return
@@ -75,6 +80,7 @@ export default ({ $axios }) => {
 			state.reviews.setData(await getAllDocsByType($axios, 'review'))
 			state.site.setData(await getAllDocsByType($axios, 'site'))
 			state.blog.setData(await getAllDocsByType($axios, 'blog'))
+			state.tools.setData(await getAllDocsByType($axios, 'tool'))
 			state.fetched = true
 		},
 	}

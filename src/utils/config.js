@@ -9,6 +9,10 @@ export const menuItems = [
 		href: '/games',
 	},
 	{
+		title: 'Tools',
+		href: '/tools',
+	},
+	{
 		title: 'About',
 		href: '/support/about-us',
 	},
