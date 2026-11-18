@@ -64,6 +64,7 @@
 				</a>
 			</div>
 		</div>
+		<script async src="https://eomail5.com/form/aaf9cd86-e36c-11f1-a85f-139d66698408.js" data-form="aaf9cd86-e36c-11f1-a85f-139d66698408"></script>
 	</footer>
 </template>
 <script>
