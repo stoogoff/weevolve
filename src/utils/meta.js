@@ -1,15 +1,16 @@
 
 const OG_TYPE = 'website'
 const BASE_URL = 'https://we-evolve.co.uk'
+const BASE_IMAGE_URL = 'https://cdn.we-evolve.co.uk'
 const BASE_TITLE = 'we evolve'
 const BASE_DESCRIPTION = 'Publisher of the Aegean, WILD, and Action Potential role-playing games.'
-const BASE_IMAGE = `https://cdn.we-evolve.co.uk/img/home/banner-aegean.png`
+const BASE_IMAGE = 'https://cdn.we-evolve.co.uk/img/home/banner-aegean.png'
 
 export const title = meta => meta && meta.title ? `${meta.title} | we evolve` : BASE_TITLE
 
 export const url = meta => meta && meta.url ? `${BASE_URL}${meta.url}` : `${BASE_URL}/`
 
-export const image = meta => meta && meta.image ? `${BASE_URL}${meta.image}` : BASE_IMAGE
+export const image = meta => meta && meta.image ? `${BASE_IMAGE_URL}${meta.image}` : BASE_IMAGE
  
 export const meta = meta => {
 	const newTitle = title(meta)
